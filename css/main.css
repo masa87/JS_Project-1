@@ -1,4 +1,37 @@
-h1 {
-  font-size: 300px;
-  color: blue;
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Roboto", sans-serif;
+}
+
+li {
+  list-style: none;
+}
+
+.header-container {
+  height: 230px;
+  background-color: #97948f;
+  background: linear-gradient(rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)), url(./../images/header/home_mobile.jpg);
+}
+
+.header-list {
+  display: flex;
+  align-items: baseline;
+  margin: 0;
+  padding: 45px 20px 45px 20px;
+  justify-content: space-between;
+}
+
+.header-menu {
+  display: flex;
+}
+.header-menu-item {
+  padding-left: 39px;
+  color: #fff;
+  text-transform: uppercase;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 1, 167;
 }/*# sourceMappingURL=main.css.map */
