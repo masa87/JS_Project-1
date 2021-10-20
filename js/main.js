@@ -1,3 +1,4 @@
+
 // import axios from "axios";
 // import { fetchMovie } from "./fetchMovie";
 
@@ -68,3 +69,4 @@ const newSearch = (e) => {
 };
 
 inputTitle.addEventListener("click", newSearch);
+
