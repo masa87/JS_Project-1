@@ -15,7 +15,7 @@
   
 <a align="center" href="https://github.com/masa87">![GitHub](https://img.shields.io/badge/-masa87-05122A?style=flat&logo=github)</a>
 <a align="center" href="https://github.com/Joanna-Golofit">![GitHub](https://img.shields.io/badge/-Joanna-Golofit-05122A?style=flat&logo=github)</a>
-<a align="center" href="https://github.com/Joanna-Golofit">![GitHub](https://img.shields.io/badge/-Majinmuszu-05122A?style=flat&logo=github)</a>
+<a align="center" href="https://github.com/Joanna-Golofit">![GitHub](https://img.shields.io/badge/-Joanna--Golofit-05122A?style=flat&logo=github)</a>
 <a align="center" href="https://github.com/Majinmuszu">![GitHub](https://img.shields.io/badge/-Majinmuszu-05122A?style=flat&logo=github)</a>
 <a align="center" href="https://github.com/DamianBrzezinski96">![GitHub](https://img.shields.io/badge/-DamianBrzezinski96-05122A?style=flat&logo=github)</a>
 
