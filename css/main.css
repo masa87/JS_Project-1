@@ -1,5 +1,7 @@
 * {
   box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
 body {
@@ -10,10 +12,16 @@ li {
   list-style: none;
 }
 
+a {
+  color: currentColor;
+  text-decoration: none;
+}
+
 .header-container {
   height: 230px;
   background-color: #97948f;
   background: linear-gradient(rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)), url(./../images/header/home_mobile.jpg);
+  background-size: cover;
 }
 
 .header-list {
@@ -41,8 +49,73 @@ li {
   width: 87.5%;
   display: block;
   margin: 0 auto;
+}
 
+.header-title {
+  display: none;
+}
 
+.header-container-library {
+  height: 230px;
+  background-color: #97948f;
+  background: linear-gradient(rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)), url(./../images/header/library_mobile.jpg);
+  background-size: cover;
+}
+
+.film-gallery {
+  display: flex;
+  justify-content: center;
+  padding: 0 20px;
+}
+
+.film-card {
+  min-width: 280px;
+  max-width: 295px;
+  margin-bottom: 20px;
+}
+
+.film-cover {
+  display: block;
+  background-color: #6e6e96;
+  min-height: 400px;
+  border-radius: 5px;
+}
+
+.film-title {
+  margin-top: 10px;
+  font-size: 12px;
+  line-height: 1.333;
+  text-transform: uppercase;
+}
+
+.film-info {
+  font-size: 12px;
+  line-height: 1.172;
+  font-weight: 500;
+  color: #ff6b08;
+}
+
+.film-list-item {
+  margin-top: 20px;
+}
+
+@media screen and (min-width: 620px) {
+  .film-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-left: -30px;
+    margin-top: -30px;
+  }
+  .film-list-item {
+    margin-top: 30px;
+  }
+
+  .film-card {
+    margin-left: 30px;
+    margin-top: 30px;
+  }
+}
 .footer {
   background-color: #f7f7f7;
 }
