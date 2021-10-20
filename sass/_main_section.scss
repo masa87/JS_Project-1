@@ -1,6 +1,7 @@
 .film-gallery {
   display: flex;
   justify-content: center;
+  flex-wrap: wrap;
   padding: 0 20px;
 }
 .film-card {
@@ -13,6 +14,8 @@
   background-color: rgb(110, 110, 150);
   min-height: 400px;
   border-radius: 5px;
+  width: 100%;
+  object-fit: cover;
 }
 .film-title {
   margin-top: 10px;
@@ -37,6 +40,7 @@
     justify-content: center;
     margin-left: -30px;
     margin-top: -30px;
+    padding: 10px;
 
     &-item {
       margin-top: 30px;
