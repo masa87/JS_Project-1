@@ -52,7 +52,7 @@ function renderMovies(movie) {
       filmGallery.innerHTML += `
       <ul class="film-list">
         <div class="film-card">        
-          <img class="film-cover" src="${baseURL}${posterSize}${backdrop_path}" alt="${original_title}" loading="lazy" />
+          <img class="film-cover" src="${baseURL}${posterSize}${poster_path}" alt="${original_title}" loading="lazy" />
           <p class="film-title">${original_title}</p>
           <p class="film-info">${id}</p>
         </div>
