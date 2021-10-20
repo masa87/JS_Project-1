@@ -1,6 +1,5 @@
 <h1 align="center"> :technologist: GoIT Team project :technologist: </h1>
 <h2 align="center">  FILMOTEKA  </h2>
-<img src="./readme_assets/1.png" width="100%">
 
 <p align="center">
 <img src="https://img.shields.io/badge/HTML-5-black"/>
@@ -16,6 +15,7 @@
   
 <a align="center" href="https://github.com/masa87">![GitHub](https://img.shields.io/badge/-masa87-05122A?style=flat&logo=github)</a>
 <a align="center" href="https://github.com/Joanna-Golofit">![GitHub](https://img.shields.io/badge/-Joanna-Golofit-05122A?style=flat&logo=github)</a>
+<a align="center" href="https://github.com/Joanna-Golofit">![GitHub](https://img.shields.io/badge/-Majinmuszu-05122A?style=flat&logo=github)</a>
 <a align="center" href="https://github.com/Majinmuszu">![GitHub](https://img.shields.io/badge/-Majinmuszu-05122A?style=flat&logo=github)</a>
 <a align="center" href="https://github.com/DamianBrzezinski96">![GitHub](https://img.shields.io/badge/-DamianBrzezinski96-05122A?style=flat&logo=github)</a>
 
@@ -34,8 +34,8 @@ project is written at the end of the study of Javascript.
 
 ## How to use Filmoteka
 
-[<img src="https://img.shields.io/badge/-Event%20Booster-FF00FF"/>](https://sergey-proskurnin.github.io/team-project-event-booster/)
-is the site for searching events around the world.
+... is the site for searching ... movies ;p
+
 
 **The Web App provides the following functions:**
 
