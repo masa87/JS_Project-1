@@ -4,6 +4,7 @@
   background: linear-gradient(rgba(0, 0, 0, 0.56)
   , rgba(0, 0, 0, 0.56)
   ), url(./../images/header/home_mobile.jpg);
+  background-size: cover;
 } 
 .header-list {
   display: flex;
@@ -30,4 +31,7 @@
     width: 87.5%;
     display: block;
     margin: 0 auto;
+}
+.header-title {
+  display: none;
 }
