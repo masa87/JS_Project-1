@@ -1,6 +1,7 @@
 const qs = (selector) => document.querySelector(selector);
 const inputTitle = qs(".header-input");
 const filmGallery = qs(".film-gallery");
+const filmList = qs(".film-list");
 
 const baseURL = "http://image.tmdb.org/t/p/";
 const posterSize = "w500";
@@ -73,14 +74,14 @@ function renderMovies(movie) {
     }) => {
       // console.log(genre_ids[1]);
       let relaseYear = release_date.substring(0, 4);
-      filmGallery.innerHTML += `
-      <ul class="film-list">
+      filmList.innerHTML += `
+      <li class="film-list-item">
         <div class="film-card">        
           <img class="film-cover" src="${baseURL}${posterSize}${poster_path}" alt="${original_title}" loading="lazy" />
           <p class="film-title">${original_title}</p>
           <p class="film-info"> | ${relaseYear}</p>
         </div>
-      </ul>`;
+      </li>`;
     }
   );
 }
@@ -92,7 +93,7 @@ const newSearch = (e) => {
     setPopularMovie();
   }
 
-  filmGallery.innerHTML = "";
+  filmList.innerHTML = "";
   searchBoxValue();
 };
 
