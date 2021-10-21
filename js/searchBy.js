@@ -1,5 +1,5 @@
-import { fetchMovie } from "../js/fetchApi";
-import renderMovies from "../js/renderMovies";
+import { fetchMovie } from "../js/fetchApi.js";
+import { renderMovies } from "../js/renderMovies.js";
 
 const qs = (selector) => document.querySelector(selector);
 const inputTitle = qs(".header-input");

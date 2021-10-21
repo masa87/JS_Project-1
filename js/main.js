@@ -1,7 +1,8 @@
-import searchBoxValue from "../js/searchBy";
-import { setPopularMovie } from "../js/trendMovies";
-import { fetchMovie } from "../js/fetchApi";
-import { fetchPopularMovie } from "../js/fetchApi";
+import { searchBoxValue } from "../js/searchBy.js";
+import { setPopularMovie } from "../js/trendMovies.js";
+import { fetchMovie } from "../js/fetchApi.js";
+import { fetchPopularMovie } from "../js/fetchApi.js";
+import { renderMovies } from "../js/renderMovies.js";
 
 const qs = (selector) => document.querySelector(selector);
 const inputTitle = qs(".header-input");
