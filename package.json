@@ -9,13 +9,13 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/masa87/JS_Project-1.git"
+    "url": "git+https://github.com/masa87/js_project-1.git"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/masa87/JS_Project-1/issues"
+    "url": "https://github.com/masa87/js_project-1/issues"
   },
   "homepage": "https://github.com/masa87/js_project-1",
   "devDependencies": {

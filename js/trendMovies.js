@@ -1,7 +1,7 @@
-import { fetchPopularMovie } from "../js/fetchApi.js";
-import { renderMovies } from "../js/renderMovies.js";
+import { fetchPopularMovie } from "./fetchApi";
+import { renderMovies } from "./renderMovies";
 
-export function setPopularMovie() {
+function setPopularMovie() {
   fetchPopularMovie()
     .then((movie) => {
       renderMovies(movie);
@@ -10,3 +10,4 @@ export function setPopularMovie() {
       console.log(err);
     });
 }
+export { setPopularMovie };

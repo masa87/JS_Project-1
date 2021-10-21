@@ -1,10 +1,10 @@
-import { fetchMovie } from "../js/fetchApi.js";
-import { renderMovies } from "../js/renderMovies.js";
+import { fetchMovie } from "./fetchApi";
+import { renderMovies } from "./renderMovies";
 
 const qs = (selector) => document.querySelector(selector);
 const inputTitle = qs(".header-input");
 
-export default function searchBoxValue() {
+function searchBoxValue() {
   fetchMovie(inputTitle.value)
     .then((movie) => {
       console.log(movie);
@@ -14,3 +14,4 @@ export default function searchBoxValue() {
       console.log(err);
     });
 }
+export { searchBoxValue };
