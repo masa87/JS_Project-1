@@ -12,3 +12,11 @@ const toggleModal = () => {
 
 openModal.addEventListener("click", toggleModal);
 closeModal.addEventListener("click", toggleModal);
+
+
+//close modal with [esc] btn
+document.onkeydown = function (e) {
+  if (e.key === 'Escape') {
+     modal.classList.add('team-is-hidden')
+  }
+};
