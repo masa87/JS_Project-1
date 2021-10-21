@@ -1,7 +1,7 @@
-import { searchBoxValue } from "../js/searchBy.js";
-import { setPopularMovie } from "../js/trendMovies.js";
-import { fetchMovie } from "../js/fetchApi.js";
-import { fetchPopularMovie } from "../js/fetchApi.js";
+import { searchBoxValue } from "./searchBy";
+import { setPopularMovie } from "./trendMovies";
+import { fetchMovie, fetchPopularMovie } from "./fetchApi";
+
 import { renderMovies } from "../js/renderMovies.js";
 
 const qs = (selector) => document.querySelector(selector);

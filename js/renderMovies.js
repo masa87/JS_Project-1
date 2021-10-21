@@ -1,3 +1,5 @@
+import { fetchMovie, fetchPopularMovie } from "./fetchApi";
+
 const qs = (selector) => document.querySelector(selector);
 const inputTitle = qs(".header-input");
 const filmList = qs(".film-list");
@@ -5,7 +7,7 @@ const filmList = qs(".film-list");
 const baseURL = "http://image.tmdb.org/t/p/";
 const posterSize = "w500";
 
-export default function renderMovies(movie) {
+export function renderMovies(movie) {
   console.log(movie.results);
   console.log(inputTitle.value);
   movie.results.forEach(
@@ -33,3 +35,5 @@ export default function renderMovies(movie) {
     }
   );
 }
+
+// export { renderMovies };
