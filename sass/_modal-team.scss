@@ -8,12 +8,10 @@
     padding: 20px 0px;
     background-color: rgba(0, 0, 0, 0.5);
     transition: all 250ms ease;
-
-    &.is-hidden {
-        opacity: 0;
-        visibility: hidden;
-        pointer-events: none;
-    }
+}
+.team-is-hidden {
+    opacity: 0;
+    pointer-events: none;
 }
 .modal-team {
     &__close-icon {
@@ -29,7 +27,7 @@
     &__members {
         position: relative;
         margin: 0 auto;
-        padding: 10px;
+        padding: 25px;
         width: 100%;
         background-color: #f5f4fa;
     }
@@ -38,6 +36,7 @@
         font-size: 20px;
         line-height: 1.25;
         text-align: center;
+        margin-bottom: 15px;
     }
 
     &__list {
