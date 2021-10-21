@@ -1,3 +1,5 @@
+// ------------ wyszukiwanie filmów po tytule
+
 async function fetchMovie(title) {
   try {
     const response = await fetch(
@@ -12,6 +14,7 @@ async function fetchMovie(title) {
   }
 }
 
+// ----------------wyświetlanie topRated filmów
 async function fetchPopularMovie() {
   try {
     const response = await fetch(
