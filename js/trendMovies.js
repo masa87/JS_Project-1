@@ -1,7 +1,7 @@
 import { fetchPopularMovie } from "./fetchApi";
 import { renderMovies } from "./renderMovies";
 
-function setPopularMovie() {
+export default function setPopularMovie() {
   fetchPopularMovie()
     .then((movie) => {
       renderMovies(movie);
@@ -10,4 +10,4 @@ function setPopularMovie() {
       console.log(err);
     });
 }
-export { setPopularMovie };
+
