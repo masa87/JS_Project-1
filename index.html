@@ -28,7 +28,7 @@
     <header class="header">
       <div class="header-container">
         <ul class="header-list">
-          <li class="header-list-item">
+          <li class="header-list-item logo">
             <a href="./index.html">
               <img
                 src="images/header/film_icon.svg"
@@ -42,14 +42,31 @@
           </li>
           <li class="header-list-item">
             <ul class="header-menu">
-              <li class="header-menu-item"><a href="./index.html">Home</a></li>
+              <li class="header-menu-item current-page">
+                <a href="./index.html">Home</a>
+              </li>
               <li class="header-menu-item">
                 <a href="./my_library.html">My Library</a>
               </li>
             </ul>
           </li>
         </ul>
-        <input type="text" class="header-input" id="input" />
+        <div class="header-input-wrapper">
+          <input
+            type="text"
+            class="header-input"
+            id="input"
+            placeholder="Search For Movies"
+          />
+          <img
+            src="images/header/search_icon.svg"
+            class="header-icon-search"
+            width="12"
+            height="12"
+            alt="search icon"
+          />
+        </div>
+        <p class="error is-hidden">Search result not successful. Enter the correct movie name.</p>
       </div>
     </header>
 
