@@ -1,5 +1,5 @@
-import { fetchPopularMovie } from "./fetchApi";
-import renderMovies from "./renderMovies";
+import { fetchPopularMovie } from "../js/fetchApi";
+import renderMovies from "../js/renderMovies";
 
 export function setPopularMovie() {
   fetchPopularMovie()
