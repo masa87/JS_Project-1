@@ -4,7 +4,7 @@ import { renderMovies } from "./renderMovies";
 const qs = (selector) => document.querySelector(selector);
 const inputTitle = qs(".header-input");
 
-function searchBoxValue() {
+export default function searchBoxValue() {
   fetchMovie(inputTitle.value)
     .then((movie) => {
       console.log(movie);
@@ -14,4 +14,4 @@ function searchBoxValue() {
       console.log(err);
     });
 }
-export { searchBoxValue };
+//export { searchBoxValue };
