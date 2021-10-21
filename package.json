@@ -2,7 +2,7 @@
   "name": "js_project-1",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "main.js",
   "scripts": {
     "start": "snowpack dev",
     "build": "snowpack build"
@@ -17,7 +17,7 @@
   "bugs": {
     "url": "https://github.com/masa87/JS_Project-1/issues"
   },
-  "homepage": "https://github.com/masa87/JS_Project-1",
+  "homepage": "https://github.com/masa87/js_project-1",
   "devDependencies": {
     "snowpack": "^3.8.8"
   },
