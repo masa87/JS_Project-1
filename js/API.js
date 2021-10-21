@@ -1,4 +1,4 @@
-export async function fetchMovie(title) {
+async function fetchMovie(title) {
   try {
     const response = await fetch(
       `https://api.themoviedb.org/3/search/movie?api_key=b8c69e73ca2b06d4109ce06d6df842ad&query=${title}`
@@ -12,7 +12,7 @@ export async function fetchMovie(title) {
   }
 }
 
-export async function fetchPopularMovie() {
+async function fetchPopularMovie() {
   try {
     const response = await fetch(
       `https://api.themoviedb.org/3/trending/movie/week?api_key=b8c69e73ca2b06d4109ce06d6df842ad`
@@ -25,3 +25,5 @@ export async function fetchPopularMovie() {
     return console.log(err);
   }
 }
+
+export { fetchMovie, fetchPopularMovie };
