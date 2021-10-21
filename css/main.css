@@ -371,6 +371,7 @@ a {
 .team-is-hidden {
   opacity: 0;
   pointer-events: none;
+  display: none;
 }
 
 .modal-team__close-icon {
