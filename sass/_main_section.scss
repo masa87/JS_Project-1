@@ -36,6 +36,19 @@
 .film-list-item {
   margin-top: 20px;
 }
+.film-rating {
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 1.16;
+  color: #ffffff;
+  background-color: #ff6b08;
+  text-align: center;
+  width: 36px;
+  height: 16px;
+  border-radius: 5px;
+  padding: 1px 6px;
+  margin-left: 10px;
+}
 
 @media screen and (min-width: 620px) {
   .film-gallery {
