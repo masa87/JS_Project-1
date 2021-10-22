@@ -1,13 +1,21 @@
 <h1 align="center"> :technologist: GoIT Team project :technologist: </h1>
 <h2 align="center">  FILMOTEKA  </h2>
 
-<p align="center">
-<img src="https://img.shields.io/badge/HTML-5-black"/>
-<img src="https://img.shields.io/badge/%09CSS%20-2.1-yellowgreen"/>
-<img src="https://img.shields.io/badge/JavaScript-ES8-aqua"/>
-<img src="https://img.shields.io/badge/Node.js-14.17.0-brightgreen"/>
-<img src="https://img.shields.io/badge/-GitHub-black"/>
-</p>
+<span align="center"> 
+  
+![HTML](https://img.shields.io/badge/-HTML-05122A?style=flat&logo=HTML5)&nbsp;
+![CSS](https://img.shields.io/badge/-CSS-05122A?style=flat&logo=CSS3&logoColor=1572B6)&nbsp;
+![JavaScript](https://img.shields.io/badge/-JavaScript-05122A?style=flat&logo=javascript)&nbsp;
+![Node.js](https://img.shields.io/badge/-Node.js-05122A?style=flat&logo=Node.js)&nbsp;
+  
+![Git](https://img.shields.io/badge/-Git-05122A?style=flat&logo=git)&nbsp;
+![GitHub](https://img.shields.io/badge/-GitHub-05122A?style=flat&logo=github)&nbsp;
+![Firebase](https://img.shields.io/badge/-Firebase-05122A?style=flat&logo=firebase)&nbsp;
+![Figma](https://img.shields.io/badge/-Figma-05122A?style=flat&logo=figma)&nbsp;
+
+![Visual Studio Code](https://img.shields.io/badge/-Visual%20Studio%20Code-05122A?style=flat&logo=visual-studio-code&logoColor=007ACC)&nbsp;
+
+</span>
 
 
 <h3 align="center"> ℹ️ &nbsp; Team Members - Developers 🐾 🐱‍🚀 <h3>
@@ -20,34 +28,27 @@
 
 </span> 
 
-<h2 align="center"><a  href="masa87.github.io/js_project-1/">GitHub Pages</a></h2>
+<h2 align="center"><a href="https://masa87.github.io/JS_Project-1/">GitHub Pages</a></h2>
 
 ## Description
 
-The project is implemented in vanilla JavaScript using Snowpack and working with
-[The Movie Database TMDB](https://www.themoviedb.org/).
+The project is implemented in vanilla JavaScript using Snowpack and working with:
+
+:star: [The Movie Database TMDB](https://www.themoviedb.org/),
+
+:star: [tui pagination](https://www.npmjs.com/package/tui-pagination), 
+
+:star: Responsive design for use on phone :iphone:, tablet and desktop :desktop_computer:.
+
+
 We are students of the FullStack developer course
 [<img src="https://img.shields.io/badge/Go-IT-orange" />](https://goit.global/pl/), the
 project is written at the end of the study of Javascript.
 
 
-## How to use Filmoteka
+## How to use Filmoteka?
 
-... is the site for searching ... movies ;p
+:orange_circle: It is the site for searching ... movies ;p
 
 
-**The Web App provides the following functions:**
-
-:black_circle: Search movie by a key word
-
-:orange_circle: pagination...
-
-:green_circle: ?
-
-:star: x
-
-:world_map: y
-
-:black_circle: Responsive design for use on phone :iphone:, tablet and desktop
-:desktop_computer:.
 
