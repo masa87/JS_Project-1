@@ -29,7 +29,13 @@
     text-transform: uppercase;
     font-weight: 500;
     font-size: 12px;
-    line-height: 1,167;
+    line-height: 1, 167;
+
+    & a {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
   }
 }
 .header-input {
@@ -84,7 +90,6 @@
 .is-hidden {
   display: none;
 }
-
 
 @media (min-device-pixel-ratio: 2),
   (-webkit-min-device-pixel-ratio: 2),

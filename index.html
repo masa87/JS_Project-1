@@ -7,6 +7,12 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+      integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+      crossorigin="anonymous"
+    />
+    <link
       href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap"
       rel="stylesheet"
     />
@@ -78,17 +84,38 @@
           <!-- tu idą karty filmowe -->
         </ul>
       </div>
-     <!-- Okno modalne -->
+      <!-- Okno modalne -->
       <div class="js-open-modal overlay is-hidden">
-      <div class="modal__wrapper">
-        <svg class="modal__close-icon js-close-btn">
-          <use href="./images/footer/close-button.svg#icon-modal-close-button"></use>
-        </svg>
-        <!-- tutaj templetka -->
+        <div class="modal__wrapper">
+          <svg class="modal__close-icon js-close-btn">
+            <use
+              href="./images/footer/close-button.svg#icon-modal-close-button"
+            ></use>
+          </svg>
+          <!-- tutaj templetka -->
+        </div>
       </div>
-    </div>
       <!-- koniec okna modalnego -->
     </main>
+
+    <!-- -----------paginacja -->
+
+    <nav aria-label="Page navigation example">
+      <ul class="pagination justify-content-center">
+        <li class="page-item disabled page-item-previous">
+          <a class="page-link" href="#" tabindex="-1">Previous</a>
+        </li>
+        <li class="page-item"><a class="page-link" href="#">1</a></li>
+        <li class="page-item"><a class="page-link" href="#">2</a></li>
+        <li class="page-item"><a class="page-link" href="#">3</a></li>
+        <li class="page-item"><a class="page-link" href="#">4</a></li>
+        <li class="page-item"><a class="page-link" href="#">...</a></li>
+        <li class="page-item"><a class="page-link" href="#">6</a></li>
+        <li class="page-item">
+          <a class="page-link" href="#">Next</a>
+        </li>
+      </ul>
+    </nav>
 
     <footer class="footer">
       <div class="footer__container">
@@ -108,73 +135,97 @@
       <div class="modal-team__backdrop team-is-hidden" data-backdrop>
         <div class="modal-team__container">
           <div class="modal-team__members">
-             <svg class="modal-team__close-icon" data-close-team>
-                  <use href="./images/footer/close-button.svg#icon-modal-close-button"></use>
-                </svg>
-                <h3 class="modal-team__title">Our Team</h3>
-                <ul class="modal-team__list">
-                  <li class="modal-team__item">
-                    <a
-                      class="modal-team__name"
-                      href="https://github.com/masa87"
-                    >
-                      <div class="modal-team__img-wrapper">
-                        <img
-                          class="modal-team__img"
-                          src="./images/team/Tomasz.jpg"
-                          alt=""
-                          width="120"
-                        />
-                      </div>
-                      Tomasz Mazur
-                    </a>
-                  </li>
-                  <li class="modal-team__item">
-                    <a class="modal-team__name" href="https://github.com/Majinmuszu">
-                      <div class="modal-team__img-wrapper">
-                        <img
-                          class="modal-team__img"
-                          src="./images/team/Artur.jpg"
-                          alt=""
-                          width="120"
-                        />
-                      </div>
-                      Artur Kraśniewski
-                    </a>
-                  </li>
-                  <li class="modal-team__item">
-                    <a class="modal-team__name" href="https://github.com/Joanna-Golofit">
-                      <div class="modal-team__img-wrapper">
-                        <img
-                          class="modal-team__img"
-                          src="./images/team/Joanna.jpg"
-                          alt=""
-                          width="120"
-                        />
-                      </div>
-                      Joanna Gołofit
-                    </a>
-                  </li>
-                  <li class="modal-team__item">
-                    <a class="modal-team__name" href="https://github.com/DamianBrzezinski96">
-                      <div class="modal-team__img-wrapper">
-                        <img
-                          class="modal-team__img"
-                          src="./images/team/Damian.jpg"
-                          alt=""
-                          width="120"
-                        />
-                      </div>
-                      Damian Brzeziński
-                    </a>
-                  </li>
-                  </ul>
+            <svg class="modal-team__close-icon" data-close-team>
+              <use
+                href="./images/footer/close-button.svg#icon-modal-close-button"
+              ></use>
+            </svg>
+            <h3 class="modal-team__title">Our Team</h3>
+            <ul class="modal-team__list">
+              <li class="modal-team__item">
+                <a class="modal-team__name" href="https://github.com/masa87">
+                  <div class="modal-team__img-wrapper">
+                    <img
+                      class="modal-team__img"
+                      src="./images/team/Tomasz.jpg"
+                      alt=""
+                      width="120"
+                    />
+                  </div>
+                  Tomasz Mazur
+                </a>
+              </li>
+              <li class="modal-team__item">
+                <a
+                  class="modal-team__name"
+                  href="https://github.com/Majinmuszu"
+                >
+                  <div class="modal-team__img-wrapper">
+                    <img
+                      class="modal-team__img"
+                      src="./images/team/Artur.jpg"
+                      alt=""
+                      width="120"
+                    />
+                  </div>
+                  Artur Kraśniewski
+                </a>
+              </li>
+              <li class="modal-team__item">
+                <a
+                  class="modal-team__name"
+                  href="https://github.com/Joanna-Golofit"
+                >
+                  <div class="modal-team__img-wrapper">
+                    <img
+                      class="modal-team__img"
+                      src="./images/team/Joanna.jpg"
+                      alt=""
+                      width="120"
+                    />
+                  </div>
+                  Joanna Gołofit
+                </a>
+              </li>
+              <li class="modal-team__item">
+                <a
+                  class="modal-team__name"
+                  href="https://github.com/DamianBrzezinski96"
+                >
+                  <div class="modal-team__img-wrapper">
+                    <img
+                      class="modal-team__img"
+                      src="./images/team/Damian.jpg"
+                      alt=""
+                      width="120"
+                    />
+                  </div>
+                  Damian Brzeziński
+                </a>
+              </li>
+            </ul>
           </div>
         </div>
       </div>
     </footer>
 
+    <script
+      src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+      integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+      integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+      integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+      crossorigin="anonymous"
+    ></script>
     <script type="module" src="./js/main.js"></script>
-    ,<script src="./js/team-modal.js"></script>
+    ,
+    <script src="./js/team-modal.js"></script>
   </body>
 </html>
