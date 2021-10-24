@@ -1,13 +1,12 @@
-// import  _default  from "./searchBy";
-// import  setPopularMovie  from "./trendMovies";
-//import { fetchMovie, fetchPopularMovie } from "./fetchApi";
-// import "./renderMovies";
-
 const qs = (selector) => document.querySelector(selector);
 const inputTitle = qs(".header-input");
 const filmList = qs(".film-list");
+const paginationContainer = qs(".pagination");
 
 let movieId = [];
+let page = 1;
+let totalPages = 0;
+let arr = [];
 
 // ------------ wyszukiwanie filmów po tytule
 async function fetchMovie(title) {
@@ -25,10 +24,10 @@ async function fetchMovie(title) {
 }
 
 // ----------------wyświetlanie topRated filmów
-async function fetchPopularMovie() {
+async function fetchPopularMovie(page) {
   try {
     const response = await fetch(
-      `https://api.themoviedb.org/3/trending/movie/week?api_key=b8c69e73ca2b06d4109ce06d6df842ad`
+      `https://api.themoviedb.org/3/trending/movie/week?api_key=b8c69e73ca2b06d4109ce06d6df842ad&page=${page}`
     );
     if (!response.ok) {
       throw new Error(response.status);
@@ -49,7 +48,6 @@ async function fetchGenres() {
     if (!response.ok) {
       throw new Error(response.status);
     }
-    // console.log(response.json());
     return response.json();
   } catch (err) {
     return console.log(err);
@@ -69,6 +67,9 @@ const baseURL = "http://image.tmdb.org/t/p/";
 const posterSize = "w500";
 
 export function renderMovies(movie) {
+  totalPages = movie.total_pages;
+
+  renderPagination();
   movie.results.forEach(
     ({
       id,
@@ -100,20 +101,17 @@ export function renderMovies(movie) {
 
 //---------popularne filmy
 function setPopularMovie() {
-  fetchPopularMovie()
+  fetchPopularMovie(page)
     .then((movie) => {
       renderMovies(movie);
     })
-    .catch((err) => {
-      console.log(err);
-    });
+    .catch((err) => {});
 }
 
 //---------szukajka
 function searchBoxValue() {
   fetchMovie(inputTitle.value)
     .then((movie) => {
-      console.log(movie);
       renderMovies(movie);
     })
     .catch((err) => {
@@ -122,6 +120,40 @@ function searchBoxValue() {
 }
 
 setPopularMovie();
+
+// -------------- paginacja
+
+function renderPagination() {
+  for (let i = page; i < totalPages; i++) {
+    for (let j = page - 1; j < page + 3; j++) {
+      paginationContainer.innerHTML = `
+      <li class="page-item disabled page-item-previous">
+        <a class="page-link" href="#" tabindex="-1">Previous</a>
+      </li>
+      <li class="page-item active">
+        <a class="page-link" href="#">${page}<span class="sr-only">(current)</span></a>      
+      </li>
+      <li class="page-item">
+        <a class="page-link" href="#">${page + 1}</a>      
+      </li>
+      <li class="page-item">
+        <a class="page-link" href="#">${page + 2}</a>      
+      </li>
+      <li class="page-item">
+        <a class="page-link" href="#">...</a>      
+      </li>
+      <li class="page-item">
+        <a class="page-link" href="#">${totalPages}</a>      
+      </li>
+      <li class="page-item">
+        <a class="page-link" href="#">Next</a>
+      </li>
+      `;
+    }
+  }
+}
+
+// ---------------addEventListener
 
 inputTitle.addEventListener("change", (e) => {
   e.preventDefault();
