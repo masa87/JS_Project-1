@@ -19,6 +19,11 @@
   margin: 0;
   padding: 45px 0 45px;
   justify-content: space-between;
+  & a {
+    display: flex;
+    align-items: baseline;
+  }
+  
 }
 .header-menu {
   display: flex;
