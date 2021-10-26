@@ -79,15 +79,15 @@
     </header>
 
     <main>
-      <div class="film-gallery">
+      <div class="film-gallery" data-modal-open>
         <ul class="film-list">
           <!-- tu idą karty filmowe -->
         </ul>
       </div>
       <!-- Okno modalne -->
-      <div class="js-open-modal overlay is-hidden">
+      <div class="js-open-modal overlay is-hidden" data-backdropp>
         <div class="modal__wrapper">
-          <svg class="modal__close-icon js-close-btn">
+          <svg class="modal__close-icon js-close-btn" data-modal-close>
             <use
               href="./images/footer/close-button.svg#icon-modal-close-button"
             ></use>
