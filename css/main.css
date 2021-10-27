@@ -73,16 +73,6 @@ a {
   margin-right: -12px;
 }
 
-.header-input::-moz-placeholder {
-  color: #fff;
-  font-size: 14px;
-}
-
-.header-input:-ms-input-placeholder {
-  color: #fff;
-  font-size: 14px;
-}
-
 .header-input::placeholder {
   color: #fff;
   font-size: 14px;
@@ -268,8 +258,7 @@ a {
   height: 400px;
   border-radius: 5px;
   width: 100%;
-  -o-object-fit: cover;
-     object-fit: cover;
+  object-fit: cover;
 }
 
 .film-title {
@@ -579,6 +568,14 @@ a {
   }
 }
 
+.modal {
+  position: static;
+}
+@media screen and (min-width: 320px) and (max-width: 767px) {
+  .modal {
+    display: contents;
+  }
+}
 @media screen and (min-width: 768px) {
   .modal {
     display: flex;
@@ -620,11 +617,12 @@ a {
   }
 }
 .modal__poster-img {
-  -o-object-fit: cover;
-     object-fit: cover;
+  background-size: cover;
   border-radius: 5px;
   width: inherit;
   height: 100%;
+  display: block;
+  background-image: url(./../images/header/movie-placeholder.jpg);
 }
 
 .modal__close-icon {
@@ -725,7 +723,7 @@ a {
 .modal__buttons-watched, .modal__buttons-queue {
   font-weight: 500;
   font-size: 12px;
-  line-height: 0.75;
+  line-height: 1.33;
   min-width: 112px;
   height: 44px;
   border: 1px solid #000000;
@@ -757,31 +755,12 @@ a {
   border: 1px solid #ff6b08;
 }
 
-@-webkit-keyframes spinner-line-fade-more {
-  0%, 100% {
-    opacity: 0;
-    /* minimum opacity */
-  }
-  1% {
-    opacity: 1;
-  }
-}
-
 @keyframes spinner-line-fade-more {
   0%, 100% {
     opacity: 0;
     /* minimum opacity */
   }
   1% {
-    opacity: 1;
-  }
-}
-@-webkit-keyframes spinner-line-fade-quick {
-  0%, 39%, 100% {
-    opacity: 0.25;
-    /* minimum opacity */
-  }
-  40% {
     opacity: 1;
   }
 }
@@ -794,32 +773,12 @@ a {
     opacity: 1;
   }
 }
-@-webkit-keyframes spinner-line-fade-default {
-  0%, 100% {
-    opacity: 0.22;
-    /* minimum opacity */
-  }
-  1% {
-    opacity: 1;
-  }
-}
 @keyframes spinner-line-fade-default {
   0%, 100% {
     opacity: 0.22;
     /* minimum opacity */
   }
   1% {
-    opacity: 1;
-  }
-}
-@-webkit-keyframes spinner-line-shrink {
-  0%, 25%, 100% {
-    /* minimum scale and opacity */
-    transform: scale(0.5);
-    opacity: 0.25;
-  }
-  26% {
-    transform: scale(1);
     opacity: 1;
   }
 }

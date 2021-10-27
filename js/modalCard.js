@@ -23,7 +23,7 @@ const renderSingleMovieCard = (id) => {
               <!-- Szablon karty okno modalne -->
         <div class="modal__descr">
             <h2 class="modal__descr-title">Title</h2>
-            <ul class="list modal__descr-list">
+            <div class="list modal__descr-list">
 
                 <ul class="list modal__descr-sublist">
                     <li class="modal__descr-details modal__descr-details--indent">Vote / Votes</li>
@@ -50,7 +50,7 @@ const renderSingleMovieCard = (id) => {
                 </li>
                 </ul>
 
-            </ul>
+            </div>
             <h3 class="modal__descr-subtitle">ABOUT</h3>
             <p class="modal__descr-info">About</p>
         </div>
