@@ -1,3 +1,4 @@
+import { spinner } from "./spinner";
 const qs = (selector) => document.querySelector(selector);
 const inputTitle = qs(".header-input");
 const filmList = qs(".film-list");
@@ -12,6 +13,7 @@ let tempInputValue = "";
 
 // ------------ wyszukiwanie filmów po tytule
 async function fetchMovie(title, page) {
+  spinner.spin(body)
   try {
     const response = await fetch(
       `https://api.themoviedb.org/3/search/movie?api_key=b8c69e73ca2b06d4109ce06d6df842ad&query=${title}&page=${page}`
@@ -43,6 +45,7 @@ async function fetchPopularMovie(page) {
 // ------------genres
 
 async function fetchGenres() {
+  spinner.spin(body);
   try {
     const response = await fetch(
       `https://api.themoviedb.org/3/genre/movie/list?api_key=b8c69e73ca2b06d4109ce06d6df842ad`
@@ -99,6 +102,7 @@ function renderMovies(movie) {
       </li>`;
     }
   );
+  spinner.stop()
 }
 
 //---------popularne filmy
