@@ -1,14 +1,13 @@
-const qs = (selector) => document.querySelector(selector);
-
 const openModalCard = qs("[data-modal-open]");
 const closeModalCard = qs("[data-modal-close]");
 const modall = qs("[data-backdropp]");
-const template = document.querySelector("#film-template");
+const template = document.querySelector('#film-template')
+
 
 let targetCard = null;
 let filmId = null;
-//funkcja do renderowania karty filmu w oknie modalnym,
-//html w gravisach, do uzupełnienia za pomocą ${cośtam}
+//funkcja do renderowania karty filmu w oknie modalnym, 
+//html w gravisach, do uzupełnienia za pomocą ${cośtam} 
 //żeby wyciągnąc dane z API i je umieścić w templatce
 //za pomocą ID wyciągniętego w następnej funkcji
 const renderSingleMovieCard = (id) => {
@@ -66,26 +65,26 @@ const renderSingleMovieCard = (id) => {
         </div>
     </div>
 </div>
-  `;
+  `
 };
 //tutaj funkcja pozwala na otwarcie odpowiedniego filmu, klikając
-//na jego kartę (event jest na całym divie), wyciąga od razu
+//na jego kartę (event jest na całym divie), wyciąga od razu 
 //ID tego filmu, żeby mozna było je przekazać do funkcji renderującej
 const openModalMovie = (e) => {
-  template.innerHTML = "";
-  targetCard = e.target.closest(".film-card");
+  template.innerHTML = '';
+  targetCard = e.target.closest('.film-card')
   if (!targetCard) {
     return;
   }
-  modall.classList.remove("is-hidden");
-  filmId = targetCard.getAttribute("data-id");
-  console.log(filmId);
-  renderSingleMovieCard(filmId);
+    modall.classList.remove("is-hidden");
+    filmId = targetCard.getAttribute("data-id");
+    console.log(filmId);
+    renderSingleMovieCard(filmId);
 };
 //zamykanie okna modalnego "z krzyżyka"
 const closeModalMovie = () => {
-  modall.classList.add("is-hidden");
-};
+  modall.classList.add("is-hidden")
+}
 //zamykanie modala za pomocą [esc]
 document.onkeydown = function (e) {
   if (e.key === "Escape") {
@@ -93,5 +92,7 @@ document.onkeydown = function (e) {
   }
 };
 
+
 openModalCard.addEventListener("click", openModalMovie);
 closeModalCard.addEventListener("click", closeModalMovie);
+
