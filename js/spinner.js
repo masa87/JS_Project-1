@@ -1,4 +1,4 @@
-import { Spinner } from "./../node_modules/spin.js/spin";
+import { Spinner } from "spin.js";
 
 var opts = {
   lines: 18, // The number of lines to draw
@@ -21,11 +21,12 @@ var opts = {
   position: "fixed", // Element positioning
 };
 
-const body = document.querySelector('#body')
+export const body = document.querySelector('#body')
 export const spinner = new Spinner(opts);
 
 
-const search = document.querySelector(".header-icon-search");
+
+//const search = document.querySelector(".header-icon-search");
 //spinner odpala się na eventListener na click, 
 //zamyka się na [esc] trzeba zaimplementować w funkcję async
 // podzielić na moduły, wywalić poniższe i powinno działać z powyższego
