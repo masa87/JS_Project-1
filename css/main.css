@@ -104,6 +104,7 @@ a {
 
 .header-icon-search {
   display: inline-block;
+  cursor: pointer;
 }
 
 .current-page::after {
