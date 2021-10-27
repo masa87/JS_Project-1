@@ -25,7 +25,7 @@ export const body = document.querySelector("#body");
 export const spinner = new Spinner(opts);
 
 //const search = document.querySelector(".header-icon-search");
-//spinner odpala się na eventListener na click,
+//spinner odpala się, na eventListener na click,
 //zamyka się na [esc] trzeba zaimplementować w funkcję async
 // podzielić na moduły, wywalić poniższe i powinno działać z powyższego
 // const spiner = () => {

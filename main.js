@@ -7,6 +7,7 @@ const paginationContainer = qs(".pagination");
 const paginationitem = document.getElementsByClassName("page-item");
 
 let movieId = [];
+
 let page = 1;
 let totalPages = 0;
 let currentPage = 1;
