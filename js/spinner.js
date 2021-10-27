@@ -21,13 +21,11 @@ var opts = {
   position: "fixed", // Element positioning
 };
 
-//export const body = document.querySelector('#body')
-const spinner = new Spinner(opts);
-export default spinner;
-
+export const body = document.querySelector("#body");
+export const spinner = new Spinner(opts);
 
 //const search = document.querySelector(".header-icon-search");
-//spinner odpala się na eventListener na click, 
+//spinner odpala się na eventListener na click,
 //zamyka się na [esc] trzeba zaimplementować w funkcję async
 // podzielić na moduły, wywalić poniższe i powinno działać z powyższego
 // const spiner = () => {
@@ -41,4 +39,3 @@ export default spinner;
 // console.log(search);
 // console.log(body);
 // search.addEventListener('click', spiner);
-
