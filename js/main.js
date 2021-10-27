@@ -1,4 +1,5 @@
 import { spinner, body } from "./spinner.js";
+
 const qs = (selector) => document.querySelector(selector);
 const inputTitle = qs(".header-input");
 const filmList = qs(".film-list");
