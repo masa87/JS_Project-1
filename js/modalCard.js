@@ -62,10 +62,10 @@ const renderSingleMovieCard = (id) => {
     </div>
 </div>
   `
-
 };
 
 const openModalMovie = (e) => {
+  template.innerHTML = '';
   targetCard = e.target.closest('.film-card')
   if (!targetCard) {
     return;
