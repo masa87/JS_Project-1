@@ -4,12 +4,12 @@ const modall = qs("[data-backdropp]");
 console.log(openModalCard);
 console.log(closeModalCard);
 
-const toggleModal = () => {
+const toggleModalMovie = () => {
     modall.classList.toggle("is-hidden");
 };
 
-openModalCard.addEventListener("click", toggleModal);
-closeModalCard.addEventListener("click", toggleModal);
+openModalCard.addEventListener("click", toggleModalMovie);
+closeModalCard.addEventListener("click", toggleModalMovie);
 
 
 //close modal with [esc] btn

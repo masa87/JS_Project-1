@@ -1,4 +1,4 @@
-import { Spinner } from "spin.js";
+import { Spinner } from "spin.js/spin";
 
 var opts = {
   lines: 18, // The number of lines to draw
@@ -21,23 +21,21 @@ var opts = {
   position: "fixed", // Element positioning
 };
 
-const body = document.querySelector('#body')
-//export const spinner = new Spinner(opts).spin(body);
+export const body = document.querySelector("#body");
+export const spinner = new Spinner(opts);
 
-
-const search = document.querySelector(".header-icon-search");
-//spinner odpala się na eventListener na click, 
+//const search = document.querySelector(".header-icon-search");
+//spinner odpala się na eventListener na click,
 //zamyka się na [esc] trzeba zaimplementować w funkcję async
 // podzielić na moduły, wywalić poniższe i powinno działać z powyższego
-const spiner = () => {
-    let szpinak = new Spinner(opts).spin(body);
-    document.onkeydown = function (e) {
-        if (e.key === 'Escape') {
-           szpinak.stop();
-        }
-      };
-    }
-console.log(search);
-console.log(body);
-search.addEventListener('click', spiner);
-
+// const spiner = () => {
+//     let szpinak = new Spinner(opts).spin(body);
+//     document.onkeydown = function (e) {
+//         if (e.key === 'Escape') {
+//            szpinak.stop();
+//         }
+//       };
+//     }
+// console.log(search);
+// console.log(body);
+// search.addEventListener('click', spiner);

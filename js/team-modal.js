@@ -6,12 +6,12 @@ const modal = qs("[data-backdrop]");
 console.log(openModal);
 console.log(closeModal);
 
-const toggleModal = () => {
+const toggleModalTeam = () => {
   modal.classList.toggle("team-is-hidden");
 };
 
-openModal.addEventListener("click", toggleModal);
-closeModal.addEventListener("click", toggleModal);
+openModal.addEventListener("click", toggleModalTeam);
+closeModal.addEventListener("click", toggleModalTeam);
 
 
 //close modal with [esc] btn
