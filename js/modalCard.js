@@ -6,6 +6,10 @@ const template = document.querySelector('#film-template')
 
 let targetCard = null;
 let filmId = null;
+//funkcja do renderowania karty filmu w oknie modalnym, 
+//html w gravisach, do uzupełnienia za pomocą ${cośtam} 
+//żeby wyciągnąc dane z API i je umieścić w templatce
+//za pomocą ID wyciągniętego w następnej funkcji
 const renderSingleMovieCard = (id) => {
   template.innerHTML = `
   <div class="modal__poster-tmp js-poster">
@@ -63,7 +67,9 @@ const renderSingleMovieCard = (id) => {
 </div>
   `
 };
-
+//tutaj funkcja pozwala na otwarcie odpowiedniego filmu, klikając
+//na jego kartę (event jest na całym divie), wyciąga od razu 
+//ID tego filmu, żeby mozna było je przekazać do funkcji renderującej
 const openModalMovie = (e) => {
   template.innerHTML = '';
   targetCard = e.target.closest('.film-card')
@@ -75,15 +81,18 @@ const openModalMovie = (e) => {
     console.log(filmId);
     renderSingleMovieCard(filmId);
 };
+//zamykanie okna modalnego "z krzyżyka"
 const closeModalMovie = () => {
   modall.classList.add("is-hidden")
 }
-openModalCard.addEventListener("click", openModalMovie);
-closeModalCard.addEventListener("click", closeModalMovie);
-
-//close modal with [esc] btn
+//zamykanie modala za pomocą [esc]
 document.onkeydown = function (e) {
   if (e.key === "Escape") {
     modall.classList.add("is-hidden");
   }
 };
+
+
+openModalCard.addEventListener("click", openModalMovie);
+closeModalCard.addEventListener("click", closeModalMovie);
+
