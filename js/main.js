@@ -95,7 +95,7 @@ function renderMovies(movie) {
       let relaseYear = release_date.substring(0, 4);
       filmList.innerHTML += `
       <li class="film-list-item">
-        <div class="film-card">        
+        <div class="film-card" data-id="${id}">        
           <img class="film-cover" src="${baseURL}${posterSize}${poster_path}" alt="${original_title}" loading="lazy" />
           <p class="film-title">${original_title}</p>
           <p class="film-info">${getNewId} | ${relaseYear}</p>
