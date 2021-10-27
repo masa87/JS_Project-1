@@ -1,4 +1,4 @@
-import { Spinner } from "spin.js";
+import { Spinner } from "../node_modules/spin.js/spin";
 
 var opts = {
   lines: 18, // The number of lines to draw
