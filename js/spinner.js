@@ -21,9 +21,9 @@ var opts = {
   position: "fixed", // Element positioning
 };
 
-export const body = document.querySelector('#body')
-export const spinner = new Spinner(opts);
-
+//export const body = document.querySelector('#body')
+const spinner = new Spinner(opts);
+export default spinner;
 
 
 //const search = document.querySelector(".header-icon-search");

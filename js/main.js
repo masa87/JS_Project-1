@@ -1,4 +1,4 @@
-import { spinner, body } from "./spinner.js";
+import spinner from "./spinner.js";
 
 const qs = (selector) => document.querySelector(selector);
 const inputTitle = qs(".header-input");
