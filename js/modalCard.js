@@ -7,53 +7,84 @@ const template = document.querySelector("#film-template");
 
 let targetCard = null;
 let filmId = null;
+
+const baseURL = "http://image.tmdb.org/t/p/";
+const posterSize = "original";
+
+// --------------fetch danych dla wybranego filmu
+
+async function fetchById(id) {
+  try {
+    const response = await fetch(
+      `https://api.themoviedb.org/3/movie/${id}?api_key=b8c69e73ca2b06d4109ce06d6df842ad`
+    );
+    if (!response.ok) {
+      throw new Error(response.status);
+    }
+    return await response.json();
+  } catch (err) {
+    return console.log(err);
+  }
+}
+
+function movieDetails() {
+  fetchById(filmId)
+    .then((movie) => {
+      renderSingleMovieCard(filmId, movie);
+    })
+    .catch((err) => {});
+}
+
 //funkcja do renderowania karty filmu w oknie modalnym,
 //html w gravisach, do uzupełnienia za pomocą ${cośtam}
 //żeby wyciągnąc dane z API i je umieścić w templatce
 //za pomocą ID wyciągniętego w następnej funkcji
-const renderSingleMovieCard = (id) => {
+const renderSingleMovieCard = (id, movie) => {
+  console.log(movie);
+  let getGenres = [...movie.genres].map((genre) => genre.name).join(", ");
+
   template.innerHTML = `
   <div class="modal__poster-tmp js-poster">
             <!-- Poster do okna modalnego  -->
     <div class="modal__poster">
-        <img class="modal__poster-img" src="#" alt="title of poster" />
+        <img class="modal__poster-img" src="${baseURL}${posterSize}${movie.poster_path}" alt="${movie.original_title}" />
     </div>
 </div>
 <div class="modal__info-container">
     <div class="js-modal">
               <!-- Szablon karty okno modalne -->
         <div class="modal__descr">
-            <h2 class="modal__descr-title">Title</h2>
+            <h2 class="modal__descr-title">${movie.original_title}</h2>
             <div class="list modal__descr-list">
 
                 <ul class="list modal__descr-sublist">
                     <li class="modal__descr-details modal__descr-details--indent">Vote / Votes</li>
                     <li class="modal__descr-item">
-                        <span class="modal__descr-vote">Rating</span>
+                        <span class="modal__descr-vote">${movie.vote_average}</span>
                         <span class="modal__descr-separator">/</span>
-                        <span class="modal__descr-votes">Votes</span>
+                        <span class="modal__descr-votes">${movie.vote_count}</span>
                     </li>
                 </ul>
 
                 <ul class="list modal__descr-sublist">
                     <li class="modal__descr-details modal__descr-details--indent">Popularity</li>
-                    <li class="modal__descr-item">1163.098</li>
+                    <li class="modal__descr-item">${movie.popularity}</li>
                 </ul>
 
                 <ul class="list modal__descr-sublist">
                     <li class="modal__descr-details modal__descr-details--indent">Original Title</li>
-                    <li class="modal__descr-item modal__descr-item--title">title</li>
+                    <li class="modal__descr-item modal__descr-item--title">${movie.original_title}</li>
                 </ul>
 
                 <ul class="list modal__descr-sublist">
                     <li class="modal__descr-details modal__descr-details--indent">Genre</li>
-                    <li class="modal__descr-item">Żenres</li>
+                    <li class="modal__descr-item">${getGenres}</li>
                 </li>
                 </ul>
 
             </div>
             <h3 class="modal__descr-subtitle">ABOUT</h3>
-            <p class="modal__descr-info">About</p>
+            <p class="modal__descr-info">${movie.overview}</p>
         </div>
 
         <div class="modal__buttons">
@@ -80,7 +111,9 @@ const openModalMovie = (e) => {
   modall.classList.remove("is-hidden");
   filmId = targetCard.getAttribute("data-id");
   console.log(filmId);
-  renderSingleMovieCard(filmId);
+  movieDetails();
+  // renderSingleMovieCard(filmId);
+  // renderMovieCard();
 };
 //zamykanie okna modalnego "z krzyżyka"
 const closeModalMovie = () => {

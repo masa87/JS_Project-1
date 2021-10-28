@@ -13,7 +13,7 @@ let currentPage = 1;
 let tempInputValue = "";
 
 // ------------ wyszukiwanie filmów po tytule
-async function fetchMovie(title, page) {
+export async function fetchMovie(title, page) {
   // spinner.spin(body);
   try {
     const response = await fetch(
