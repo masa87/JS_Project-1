@@ -40,7 +40,7 @@ function movieDetails() {
 //żeby wyciągnąc dane z API i je umieścić w templatce
 //za pomocą ID wyciągniętego w następnej funkcji
 const renderSingleMovieCard = (id, movie) => {
-  console.log(movie);
+  //console.log(movie);
   let getGenres = [...movie.genres].map((genre) => genre.name).join(", ");
 
   template.innerHTML = `
@@ -51,7 +51,7 @@ const renderSingleMovieCard = (id, movie) => {
     </div>
 </div>
 <div class="modal__info-container">
-    <div class="js-modal">
+    <div class="js-modal" data-id="${id}">
               <!-- Szablon karty okno modalne -->
         <div class="modal__descr">
             <h2 class="modal__descr-title">${movie.original_title}</h2>
@@ -88,10 +88,10 @@ const renderSingleMovieCard = (id, movie) => {
         </div>
 
         <div class="modal__buttons">
-            <button  type="submit" class="js-modal-btn-watched modal__buttons-watched" id="#">
+            <button data-btn="watched" data-id="${id}" type="submit" class="btn-modal js-modal-btn-watched modal__buttons-watched" id="add-watched">
                 ADD TO WATCHED
             </button>
-            <button type="submit" class="js-modal-btn-queue modal__buttons-queue" id="#">
+            <button data-btn="queue" data-id="${id}" type="submit" class="btn-modal js-modal-btn-queue modal__buttons-queue" id="add-queue">
                 ADD TO QUEUE
             </button>
         </div>
@@ -110,7 +110,7 @@ const openModalMovie = (e) => {
   }
   modall.classList.remove("is-hidden");
   filmId = targetCard.getAttribute("data-id");
-  console.log(filmId);
+  //console.log(filmId);
   movieDetails();
   // renderSingleMovieCard(filmId);
   // renderMovieCard();
