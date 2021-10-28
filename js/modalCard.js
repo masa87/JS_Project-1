@@ -5,6 +5,7 @@ const closeModalCard = qs("[data-modal-close]");
 const modall = qs("[data-backdropp]");
 const template = document.querySelector("#film-template");
 
+
 let targetCard = null;
 let filmId = null;
 
@@ -125,6 +126,17 @@ document.onkeydown = function (e) {
     modall.classList.add("is-hidden");
   }
 };
+function closeModall() {
+  modall.classList.add("is-hidden");
+  
+}
+function closeModalOnBackdrop(e) {
+  if (e.target === e.currentTarget) {
+    closeModall();
+}
+}
 
+
+modall.addEventListener("click", closeModalOnBackdrop);
 openModalCard.addEventListener("click", openModalMovie);
 closeModalCard.addEventListener("click", closeModalMovie);
