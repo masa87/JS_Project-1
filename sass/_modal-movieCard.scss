@@ -47,10 +47,10 @@
 }
 
 .modal {
-    position: static;
-    @media screen and (min-width:320px) and (max-width: 767px) {
-        display: contents;
-    }
+  position: static;
+  @media screen and (min-width: 320px) and (max-width: 767px) {
+    display: contents;
+  }
   @media screen and (min-width: 768px) {
     display: flex;
   }
@@ -88,12 +88,12 @@
     }
 
     &-img {
-      background-size: cover;  
+      object-fit: cover;
       border-radius: 5px;
       width: inherit;
       height: 100%;
       display: block;
-      background-image: url(./../images/header/movie-placeholder.jpg);
+      // background-image: url(./../images/header/movie-placeholder.jpg);
       //Zdjęcie autorstwa Pietro Jeng z Pexels
       //https://www.pexels.com/pl-pl/zdjecie/spiralna-tasma-filmowa-65128/
     }
@@ -199,7 +199,7 @@
   &-info {
     font-weight: 500;
     font-size: 12px;
-    line-height: 0.6;
+    line-height: 20px;
   }
 }
 
