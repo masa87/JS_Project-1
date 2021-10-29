@@ -1060,9 +1060,13 @@ a {
           box-shadow: none;
 }
 
-/* .page-item {
+.page-link:hover {
+  color: black;
+}
+
+.page-item {
   text-align: center;
-} */
+}
 
 .page-item:first-child .page-link {
   background-color: #F7F7F7;
@@ -1077,5 +1081,4 @@ a {
     display: none;
   }
 }
-
-
+/*# sourceMappingURL=main.css.map */
