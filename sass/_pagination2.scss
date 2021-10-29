@@ -1,4 +1,3 @@
-// bg #FF6B08
 .page-item.active .page-link {
     // z-index: 1;
     // color: #fff;
@@ -15,11 +14,11 @@
     &:focus {
       box-shadow: none;
     }
+    &:hover {
+      color: black;
+    }
 }
-.page-icon {
-  // width: 16px;
-  // height: 16px
-}
+
 .page-item {
   text-align: center;
   &:first-child {
