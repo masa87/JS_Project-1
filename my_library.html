@@ -52,17 +52,17 @@
           </li>
         </ul>
         <div class="btn-wrapper">
-          <button class="btn">Watched</button>
-          <button class="btn">Queue</button>
+          <button class="btn btn__watched">Watched</button>
+          <button class="btn btn__queue">Queue</button>
         </div>
       </div>
     </header>
 
     <main>
       <div class="film-gallery">
-        <!-- <ul class="film-list">
-           tu idą karty filmowe
-        </ul> -->
+        <ul class="film-list">
+          <!-- tu idą karty filmowe -->
+        </ul>
       </div>
     </main>
 
@@ -81,8 +81,88 @@
           </p>
         </div>
       </div>
+      <div class="modal-team__backdrop team-is-hidden" data-backdrop>
+        <div class="modal-team__container">
+          <div class="modal-team__members">
+            <svg class="modal-team__close-icon" data-close-team>
+              <use
+                href="./images/footer/close-button.svg#icon-modal-close-button"
+              ></use>
+            </svg>
+            <h3 class="modal-team__title">Our Team</h3>
+            <ul class="modal-team__list">
+              <li class="modal-team__item">
+                <a class="modal-team__name" href="https://github.com/masa87">
+                  <div class="modal-team__img-wrapper">
+                    <img
+                      class="modal-team__img"
+                      src="./images/team/Tomasz.jpg"
+                      alt=""
+                      width="120"
+                    />
+                  </div>
+                  Tomasz Mazur
+                </a>
+              </li>
+              <li class="modal-team__item">
+                <a
+                  class="modal-team__name"
+                  href="https://github.com/Majinmuszu"
+                >
+                  <div class="modal-team__img-wrapper">
+                    <img
+                      class="modal-team__img"
+                      src="./images/team/Artur.jpg"
+                      alt=""
+                      width="120"
+                    />
+                  </div>
+                  Artur Kraśniewski
+                </a>
+              </li>
+              <li class="modal-team__item">
+                <a
+                  class="modal-team__name"
+                  href="https://github.com/Joanna-Golofit"
+                >
+                  <div class="modal-team__img-wrapper">
+                    <img
+                      class="modal-team__img"
+                      src="./images/team/Joanna.jpg"
+                      alt=""
+                      width="120"
+                    />
+                  </div>
+                  Joanna Gołofit
+                </a>
+              </li>
+              <li class="modal-team__item">
+                <a
+                  class="modal-team__name"
+                  href="https://github.com/DamianBrzezinski96"
+                >
+                  <div class="modal-team__img-wrapper">
+                    <img
+                      class="modal-team__img"
+                      src="./images/team/Damian.jpg"
+                      alt=""
+                      width="120"
+                    />
+                  </div>
+                  Damian Brzeziński
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
     </footer>
 
-    <script src="./js/main.js"></script>
+    <!-- <script type="module" src="./main.js"></script> -->
+    <script type="module" src="./js/team-modal.js"></script>
+    <!-- <script type="module" src="./js/spinner.js"></script> -->
+    <!-- <script type="module" src="./js/modalCard.js"></script> -->
+    <!-- <script type="module" src="./js/localStorage.js"></script> -->
+    <script type="module" src="./js/getLocalStorage.js"></script>
   </body>
 </html>

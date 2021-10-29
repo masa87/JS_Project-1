@@ -16,18 +16,17 @@ const load = (key) => {
   }
 };
 
-
-
 const log = (l) => console.log(l);
 const qs = (el) => document.querySelector(el);
 const backdrop = qs(".js-open-modal");
-
 const KEY_WATCHED = "watched-movies";
 const KEY_QUEUE = "queue-movies";
 
 let watched = [];
 let queue = [];
 let btnTarget = null;
+
+// console.log(queue[1]);
 
 const addToLocalStorage = (e) => {
   btnTarget = e.target.closest(".btn-modal");
@@ -56,7 +55,7 @@ const addToLocalStorage = (e) => {
     queue = queue.filter(
       (movie, index, array) => array.indexOf(movie) === index
     );
-    //log(queue);
+    log(queue);
     save(KEY_QUEUE, queue);
   }
 };
