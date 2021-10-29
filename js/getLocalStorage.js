@@ -1,7 +1,3 @@
-// import { queue } from "./localStorage";
-
-// import { fetchMovie } from "../main";
-
 const qs = (el) => document.querySelector(el);
 const filmList = qs(".film-list");
 // const backdrop = qs(".js-open-modal");
@@ -29,7 +25,6 @@ async function fetchById(id) {
     if (!response.ok) {
       throw new Error(response.status);
     }
-    // console.log(response.json());
     return await response.json();
   } catch (err) {
     return console.log(err);
@@ -45,23 +40,23 @@ const baseURL = "http://image.tmdb.org/t/p/";
 const posterSize = "w500";
 
 function renderQueueMovies() {
+  filmList.innerHTML = "";
   load(key);
-  // console.log(idQueue);
 
-  idQueue.forEach((movieId) => {
-    // console.log(movieId);
-    fetchById(movieId).then((movie) => {
-      // console.log(movie.original_title);
-
-      filmList.innerHTML += `
+  idQueue.forEach((movieId1) => {
+    fetchById(movieId1).then(
+      ({ id, poster_path, original_title, release_date }) => {
+        let relaseYear = release_date.substring(0, 4);
+        filmList.innerHTML += `
       <li class="film-list-item">
-        <div class="film-card" data-id="${movie.id}">        
-          <img class="film-cover" src="${baseURL}${posterSize}${movie.poster_path}" alt="${movie.original_title}" loading="lazy" />
-          <p class="film-title">${movie.original_title}</p>
-          <p class="film-info"> | ${movie.relaseYear}</p>
+        <div class="film-card" data-id="${id}">        
+          <img class="film-cover" src="${baseURL}${posterSize}${poster_path}" alt="${original_title}" loading="lazy" />
+          <p class="film-title">${original_title}</p>
+          <p class="film-info"> | ${relaseYear}</p>
         </div>
       </li>`;
-    });
+      }
+    );
   });
 }
 

@@ -5,7 +5,6 @@ const closeModalCard = qs("[data-modal-close]");
 const modall = qs("[data-backdropp]");
 const template = document.querySelector("#film-template");
 
-
 let targetCard = null;
 let filmId = null;
 
@@ -41,7 +40,6 @@ function movieDetails() {
 //żeby wyciągnąc dane z API i je umieścić w templatce
 //za pomocą ID wyciągniętego w następnej funkcji
 const renderSingleMovieCard = (id, movie) => {
-  //console.log(movie);
   let getGenres = [...movie.genres].map((genre) => genre.name).join(", ");
 
   template.innerHTML = `
@@ -111,10 +109,7 @@ const openModalMovie = (e) => {
   }
   modall.classList.remove("is-hidden");
   filmId = targetCard.getAttribute("data-id");
-  //console.log(filmId);
   movieDetails();
-  // renderSingleMovieCard(filmId);
-  // renderMovieCard();
 };
 //zamykanie okna modalnego "z krzyżyka"
 const closeModalMovie = () => {
@@ -128,14 +123,12 @@ document.onkeydown = function (e) {
 };
 function closeModall() {
   modall.classList.add("is-hidden");
-  
 }
 function closeModalOnBackdrop(e) {
   if (e.target === e.currentTarget) {
     closeModall();
+  }
 }
-}
-
 
 modall.addEventListener("click", closeModalOnBackdrop);
 openModalCard.addEventListener("click", openModalMovie);
