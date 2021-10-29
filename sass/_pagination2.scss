@@ -1,0 +1,47 @@
+// bg #FF6B08
+.page-item.active .page-link {
+    // z-index: 1;
+    // color: #fff;
+    background-color: #FF6B08;
+    border-color: #FF6B08;
+    border-radius: 5px;
+}
+.page-link {   
+    color: black;
+    border: none;
+    padding: 0.5rem 0.85rem;
+    text-align: baseline;
+
+    &:focus {
+      box-shadow: none;
+    }
+}
+.page-icon {
+  // width: 16px;
+  // height: 16px
+}
+.page-item {
+  text-align: center;
+  &:first-child {
+    .page-link {
+      background-color: #F7F7F7;
+    }
+  }
+  &:last-child {
+    .page-link {
+      background-color: #F7F7F7;
+    }
+  }
+}
+
+@media screen and (min-width: 320px) and (max-width: 767px) {
+    
+  .page-item.hide {
+    display: none;
+  }
+}
+
+@media screen and (min-width: 768px) {
+}
+@media screen and (min-width: 1024px) {
+}

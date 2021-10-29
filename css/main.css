@@ -1041,3 +1041,41 @@ a {
     opacity: 1;
   }
 }
+
+.page-item.active .page-link {
+  background-color: #FF6B08;
+  border-color: #FF6B08;
+  border-radius: 5px;
+}
+
+.page-link {
+  color: black;
+  border: none;
+  padding: 0.5rem 0.85rem;
+  text-align: baseline;
+}
+
+.page-link:focus {
+  -webkit-box-shadow: none;
+          box-shadow: none;
+}
+
+/* .page-item {
+  text-align: center;
+} */
+
+.page-item:first-child .page-link {
+  background-color: #F7F7F7;
+}
+
+.page-item:last-child .page-link {
+  background-color: #F7F7F7;
+}
+
+@media screen and (min-width: 320px) and (max-width: 767px) {
+  .page-item.hide {
+    display: none;
+  }
+}
+
+
