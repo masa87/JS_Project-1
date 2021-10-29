@@ -55,6 +55,7 @@ a {
   -webkit-box-align: baseline;
       -ms-flex-align: baseline;
           align-items: baseline;
+  text-decoration: none;
 }
 
 .header-menu {
@@ -82,6 +83,11 @@ a {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+}
+
+.header-menu-item a:hover {
+  color: #fff;
+  text-decoration: none;
 }
 
 .header-input {
@@ -336,6 +342,48 @@ a {
   width: 100%;
   -o-object-fit: cover;
      object-fit: cover;
+}
+
+.film-cover:hover {
+  opacity: 1;
+  -webkit-animation: flash 1.5s;
+  animation: flash 1.5s;
+}
+
+@-webkit-keyframes flash {
+  0% {
+    opacity: 0.4;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes flash {
+  0% {
+    opacity: 0.4;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@-webkit-keyframes flash {
+  0% {
+    opacity: .4;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes flash {
+  0% {
+    opacity: .4;
+  }
+  100% {
+    opacity: 1;
+  }
 }
 
 .film-title {
@@ -744,12 +792,11 @@ a {
 }
 
 .modal__poster-img {
-  background-size: cover;
+  -o-object-fit: cover;
+     object-fit: cover;
   border-radius: 5px;
-  width: inherit;
-  height: 100%;
+  width: 100%;
   display: block;
-  background-image: url(./../images/header/movie-placeholder.jpg);
 }
 
 .modal__close-icon {
@@ -857,7 +904,7 @@ a {
 .modal__descr-info {
   font-weight: 500;
   font-size: 12px;
-  line-height: 0.6;
+  line-height: 20px;
 }
 
 .modal__buttons {
@@ -1013,9 +1060,9 @@ a {
           box-shadow: none;
 }
 
-.page-item {
+/* .page-item {
   text-align: center;
-}
+} */
 
 .page-item:first-child .page-link {
   background-color: #F7F7F7;
@@ -1030,4 +1077,5 @@ a {
     display: none;
   }
 }
-/*# sourceMappingURL=main.css.map */
+
+
