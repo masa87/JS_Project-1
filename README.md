@@ -34,9 +34,7 @@
 
 The project is implemented in vanilla JavaScript using Snowpack and working with:
 
-:star: [The Movie Database TMDB](https://www.themoviedb.org/),
-
-:star: [tui pagination](https://www.npmjs.com/package/tui-pagination), 
+:star: [The Movie Database TMDB](https://www.themoviedb.org/), 
 
 :star: Responsive design for use on phone :iphone:, tablet and desktop :desktop_computer:.
 
