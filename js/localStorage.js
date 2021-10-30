@@ -35,8 +35,8 @@ const addToLocalStorage = (e) => {
   }
   let btnTargetId = btnTarget.getAttribute("data-id");
   let btnTargetType = btnTarget.getAttribute("data-btn");
-  //log(btnTargetType);
-  //log(btnTargetId);
+  log(btnTargetType);
+  log(btnTargetId);
   if (btnTargetType === "watched") {
     if (load(KEY_WATCHED) !== undefined) {
       watched = load(KEY_WATCHED);
@@ -45,7 +45,7 @@ const addToLocalStorage = (e) => {
     watched = watched.filter(
       (movie, index, array) => array.indexOf(movie) === index
     );
-    //log(watched);
+    log(watched);
     save(KEY_WATCHED, watched);
   } else if (btnTargetType === "queue") {
     if (load(KEY_QUEUE) !== undefined) {
