@@ -1,3 +1,8 @@
+// import { fetchGenres, fetchMovie, fetchPopularMovie } from "./js/fetchApi";
+// import { renderMovies } from "./js/renderMovies";
+// import { searchBoxValue, setPopularMovie, startPage } from "./js/initFunctions";
+// import { renderPagination, nextPagePagination } from "./js/pagination";
+// import { searchGenres } from "./js/genres";
 // import { spinner, body } from "./js/spinner.js";
 
 const qs = (selector) => document.querySelector(selector);
@@ -12,8 +17,9 @@ let totalPages = 0;
 let currentPage = 1;
 let tempInputValue = "";
 
-// ------------ wyszukiwanie filmów po tytule
-export async function fetchMovie(title, page) {
+// -------------------fetch API
+
+async function fetchMovie(title, page) {
   // spinner.spin(body);
   try {
     const response = await fetch(
@@ -60,11 +66,11 @@ async function fetchGenres() {
   }
 }
 
-const searchGenres = () => {
+function searchGenres() {
   fetchGenres().then((id) => {
     return (movieId = id.genres);
   });
-};
+}
 
 searchGenres();
 
@@ -95,7 +101,7 @@ function renderMovies(movie) {
       let relaseYear = release_date.substring(0, 4);
       filmList.innerHTML += `
       <li class="film-list-item">
-        <div class="film-card" data-id="${id}">        
+        <div class="film-card" data-id="${id}">
           <img class="film-cover" src="${baseURL}${posterSize}${poster_path}" alt="${original_title}" loading="lazy" />
           <p class="film-title">${original_title}</p>
           <p class="film-info">${getNewId} | ${relaseYear}</p>
@@ -106,7 +112,7 @@ function renderMovies(movie) {
   // spinner.stop();
 }
 
-//---------popularne filmy
+// ---------popularne filmy
 function setPopularMovie() {
   fetchPopularMovie(page)
     .then((movie) => {
@@ -130,8 +136,6 @@ function searchBoxValue() {
     });
 }
 
-setPopularMovie();
-
 // -------------- paginacja
 
 function renderPagination() {
@@ -145,27 +149,27 @@ function renderPagination() {
               <use href="./images/pagination/arrows.svg#icon-arrow-left"></use>
             </svg>
           </a>
-        </li>        
+        </li>
         <li class="page-item active" data=1>
-          <a class="page-link" href="#">1<span class="sr-only">(current)</span></a>      
+          <a class="page-link" href="#">1<span class="sr-only">(current)</span></a>
         </li>
         <li class="page-item" data=${page + 1}>
-          <a class="page-link" href="#">${page + 1}</a>      
+          <a class="page-link" href="#">${page + 1}</a>
         </li>
         <li class="page-item" data=${page + 2}>
-          <a class="page-link" href="#">${page + 2}</a>      
+          <a class="page-link" href="#">${page + 2}</a>
         </li>
         <li class="page-item" data=${page + 3}>
-          <a class="page-link" href="#">${page + 3}</a>      
+          <a class="page-link" href="#">${page + 3}</a>
         </li>
         <li class="page-item" data=${page + 4}>
-          <a class="page-link" href="#">${page + 4}</a>      
+          <a class="page-link" href="#">${page + 4}</a>
         </li>
         <li class="page-item disabled hide">
-          <a class="page-link" href="#">...</a>      
+          <a class="page-link" href="#">...</a>
         </li>
         <li class="page-item hide" data=${totalPages}>
-          <a class="page-link" href="#">${totalPages}</a>      
+          <a class="page-link" href="#">${totalPages}</a>
         </li>
         <li class="page-item" data=${page + 1}>
           <a class="page-link" href="#">
@@ -189,33 +193,33 @@ function renderPagination() {
           </a>
         </li>
         <li class="page-item hide" data=1>
-          <a class="page-link" href="#">1<span class="sr-only">(current)</span></a>      
+          <a class="page-link" href="#">1<span class="sr-only">(current)</span></a>
         </li>
         <li class="page-item disabled hide">
-          <a class="page-link" href="#">...</a>      
+          <a class="page-link" href="#">...</a>
         </li>
         <li class="page-item" data=${page - 2}>
           <a class="page-link" href="#">${
             page - 2
-          }<span class="sr-only">(current)</span></a>      
+          }<span class="sr-only">(current)</span></a>
         </li>
         <li class="page-item" data=${page - 1}>
-          <a class="page-link" href="#">${page + -1}</a>      
+          <a class="page-link" href="#">${page + -1}</a>
         </li>
         <li class="page-item active" data=${page}>
-          <a class="page-link" href="#">${page}</a>      
+          <a class="page-link" href="#">${page}</a>
         </li>
         <li class="page-item" data=${page + 1}>
-          <a class="page-link" href="#">${page + 1}</a>      
+          <a class="page-link" href="#">${page + 1}</a>
         </li>
         <li class="page-item" data=${page + 2}>
-          <a class="page-link" href="#">${page + 2}</a>      
+          <a class="page-link" href="#">${page + 2}</a>
         </li>
         <li class="page-item hide disabled">
-          <a class="page-link" href="#">...</a>      
+          <a class="page-link" href="#">...</a>
         </li>
         <li class="page-item hide" data=${totalPages}>
-          <a class="page-link" href="#">${totalPages}</a>      
+          <a class="page-link" href="#">${totalPages}</a>
         </li>
         <li class="page-item" data=${page + 1}>
           <a class="page-link" href="#">
@@ -243,15 +247,17 @@ const nextPagePagination = (e) => {
   searchBoxValue();
 };
 
-// ---------------addEventListener
-
-inputTitle.addEventListener("change", (e) => {
+function startPage(e) {
   e.preventDefault();
   if (inputTitle.value === "") {
     setPopularMovie();
   }
   filmList.innerHTML = "";
   searchBoxValue();
-});
+}
 
+setPopularMovie();
+
+// ---------------addEventListener
+inputTitle.addEventListener("change", startPage);
 paginationContainer.addEventListener("click", nextPagePagination);

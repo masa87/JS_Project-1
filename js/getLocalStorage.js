@@ -1,15 +1,14 @@
-// import { queue } from "./localStorage";
-
-// import { fetchMovie } from "../main";
-
 const qs = (el) => document.querySelector(el);
 const filmList = qs(".film-list");
 // const backdrop = qs(".js-open-modal");
 const btnQueue = qs(".btn__queue");
+const btnWatched = qs(".btn__watched");
 const KEY_QUEUE = "queue-movies";
+const KEY_WATCHED = "watched-movies";
 
-let key = KEY_QUEUE;
 let idQueue = [];
+let key = null;
+let movieId = [];
 
 const load = (key) => {
   try {
@@ -29,40 +28,76 @@ async function fetchById(id) {
     if (!response.ok) {
       throw new Error(response.status);
     }
-    // console.log(response.json());
     return await response.json();
   } catch (err) {
     return console.log(err);
   }
 }
 
-function loadF() {
-  load(key);
-  console.log(idQueue);
+// -----------------genres
+
+async function fetchGenres() {
+  // spinner.spin(body);
+  try {
+    const response = await fetch(
+      `https://api.themoviedb.org/3/genre/movie/list?api_key=b8c69e73ca2b06d4109ce06d6df842ad`
+    );
+    if (!response.ok) {
+      throw new Error(response.status);
+    }
+    return response.json();
+  } catch (err) {
+    return console.log(err);
+  }
 }
+
+function searchGenres() {
+  fetchGenres().then((id) => {
+    return (movieId = id.genres);
+  });
+}
+
+searchGenres();
+
+// -------------rendeMovies
 
 const baseURL = "http://image.tmdb.org/t/p/";
 const posterSize = "w500";
 
 function renderQueueMovies() {
+  filmList.innerHTML = "";
   load(key);
-  // console.log(idQueue);
 
-  idQueue.forEach((movieId) => {
-    // console.log(movieId);
-    fetchById(movieId).then((movie) => {
-      // console.log(movie.original_title);
+  idQueue.forEach((movieId1) => {
+    fetchById(movieId1).then(
+      ({ id, poster_path, original_title, release_date }) => {
+        // console.log(movie.result);
+        // let getNewId = movieId
+        //   .filter((genre) => genre_ids.includes(genre.id))
+        //   .map((genre) => genre.name)
+        //   .join(", ");
 
-      filmList.innerHTML += `
+        let relaseYear = release_date.substring(0, 4);
+        filmList.innerHTML += `
       <li class="film-list-item">
-        <div class="film-card" data-id="${movie.id}">        
-          <img class="film-cover" src="${baseURL}${posterSize}${movie.poster_path}" alt="${movie.original_title}" loading="lazy" />
-          <p class="film-title">${movie.original_title}</p>
-          <p class="film-info"> | ${movie.relaseYear}</p>
+        <div class="film-card" data-id="${id}">        
+          <img class="film-cover" src="${baseURL}${posterSize}${poster_path}" alt="${original_title}" loading="lazy" />
+          <p class="film-title">${original_title}</p>
+          <p class="film-info"> | ${relaseYear}</p>
         </div>
       </li>`;
-    });
+      }
+    );
   });
 }
 
-btnQueue.addEventListener("click", renderQueueMovies);
+// -----------------addEventListeners
+btnQueue.addEventListener("click", () => {
+  key = KEY_QUEUE;
+  renderQueueMovies();
+});
+btnWatched.addEventListener("click", () => {
+  key = KEY_WATCHED;
+  console.log(key);
+  renderQueueMovies();
+});
