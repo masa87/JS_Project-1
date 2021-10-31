@@ -1,5 +1,6 @@
 import { renderPagination, nextPagePagination } from "./pagination.js";
 import { searchGenres, movieId } from "./genres.js";
+import { spinner } from "./spinner.js";
 
 const qs = (selector) => document.querySelector(selector);
 const inputTitle = qs(".header-input");
@@ -48,7 +49,7 @@ function renderMovies(movie) {
       </li>`;
     }
   );
-  // spinner.stop();
+   spinner.stop();
 }
 
 export { totalPages, renderMovies };

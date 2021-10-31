@@ -1,4 +1,5 @@
 import { page } from "./pagination.js";
+import { spinner } from "./spinner.js";
 
 const qs = (selector) => document.querySelector(selector);
 // const inputTitle = qs(".header-input");
@@ -14,7 +15,7 @@ const qs = (selector) => document.querySelector(selector);
 
 // ------------ wyszukiwanie filmów po tytule
 async function fetchMovie(title, page) {
-  // spinner.spin(body);
+  spinner.spin(body);
   try {
     const response = await fetch(
       `https://api.themoviedb.org/3/search/movie?api_key=b8c69e73ca2b06d4109ce06d6df842ad&query=${title}&page=${page}`
@@ -30,6 +31,7 @@ async function fetchMovie(title, page) {
 
 // ----------------wyświetlanie topRated filmów
 async function fetchPopularMovie(page) {
+  spinner.spin(body);
   try {
     const response = await fetch(
       `https://api.themoviedb.org/3/trending/movie/week?api_key=b8c69e73ca2b06d4109ce06d6df842ad&page=${page}`
@@ -46,7 +48,7 @@ async function fetchPopularMovie(page) {
 // ------------genres
 
 async function fetchGenres() {
-  // spinner.spin(body);
+  
   try {
     const response = await fetch(
       `https://api.themoviedb.org/3/genre/movie/list?api_key=b8c69e73ca2b06d4109ce06d6df842ad`
