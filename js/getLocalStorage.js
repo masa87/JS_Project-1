@@ -13,6 +13,10 @@ let movieId = [];
 const load = (key) => {
   try {
     const serializedState = localStorage.getItem(key);
+    console.log(
+      (idQueue =
+        serializedState === null ? undefined : JSON.parse(serializedState))
+    );
     return (idQueue =
       serializedState === null ? undefined : JSON.parse(serializedState));
   } catch (error) {
@@ -91,13 +95,28 @@ function renderQueueMovies() {
   });
 }
 
+function startMyLibPage() {
+  btnQueue.classList.add("is-chosen");
+  btnWatched.classList.remove("is-chosen");
+  key = KEY_QUEUE;
+  renderQueueMovies();
+}
+
+startMyLibPage();
+
 // -----------------addEventListeners
 btnQueue.addEventListener("click", () => {
+  btnQueue.classList.add("is-chosen");
+  btnWatched.classList.remove("is-chosen");
   key = KEY_QUEUE;
   renderQueueMovies();
 });
 btnWatched.addEventListener("click", () => {
+  btnWatched.classList.add("is-chosen");
+  btnQueue.classList.remove("is-chosen");
   key = KEY_WATCHED;
   console.log(key);
   renderQueueMovies();
 });
+
+export { load };
