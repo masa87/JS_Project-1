@@ -1,5 +1,5 @@
-import { setPopularMovie, searchBoxValue } from "./initFunctions";
-import { totalPages } from "./renderMovies";
+import { setPopularMovie, searchBoxValue } from "./initFunctions.js";
+import { totalPages } from "./renderMovies.js";
 
 const qs = (selector) => document.querySelector(selector);
 const inputTitle = qs(".header-input");

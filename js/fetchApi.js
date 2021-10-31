@@ -1,4 +1,4 @@
-import { page } from "./pagination";
+import { page } from "./pagination.js";
 
 const qs = (selector) => document.querySelector(selector);
 // const inputTitle = qs(".header-input");
