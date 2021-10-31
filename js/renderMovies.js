@@ -1,5 +1,5 @@
-import { renderPagination, nextPagePagination } from "./pagination";
-import { searchGenres, movieId } from "./genres";
+import { renderPagination, nextPagePagination } from "./pagination.js";
+import { searchGenres, movieId } from "./genres.js";
 
 const qs = (selector) => document.querySelector(selector);
 const inputTitle = qs(".header-input");

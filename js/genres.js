@@ -1,4 +1,4 @@
-import { fetchGenres } from "./fetchApi";
+import { fetchGenres } from "./fetchApi.js";
 
 let movieId = [];
 

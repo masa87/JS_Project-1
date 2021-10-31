@@ -1,6 +1,6 @@
-import { fetchGenres, fetchMovie, fetchPopularMovie } from "./fetchApi";
-import { renderMovies, totalPages } from "./renderMovies";
-import { page, setPage } from "./pagination";
+import { fetchGenres, fetchMovie, fetchPopularMovie } from "./fetchApi.js";
+import { renderMovies, totalPages } from "./renderMovies.js";
+import { page, setPage } from "./pagination.js";
 
 const qs = (selector) => document.querySelector(selector);
 const inputTitle = qs(".header-input");

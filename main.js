@@ -1,8 +1,12 @@
-import { fetchGenres, fetchMovie, fetchPopularMovie } from "./js/fetchApi";
-import { renderMovies } from "./js/renderMovies";
-import { searchBoxValue, setPopularMovie, startPage } from "./js/initFunctions";
-import { renderPagination, nextPagePagination } from "./js/pagination";
-import { searchGenres } from "./js/genres";
+import { fetchGenres, fetchMovie, fetchPopularMovie } from "./js/fetchApi.js";
+import { renderMovies } from "./js/renderMovies.js";
+import {
+  searchBoxValue,
+  setPopularMovie,
+  startPage,
+} from "./js/initFunctions.js";
+import { renderPagination, nextPagePagination } from "./js/pagination.js";
+import { searchGenres } from "./js/genres.js";
 // import { spinner, body } from "./js/spinner.js";
 
 const qs = (selector) => document.querySelector(selector);
