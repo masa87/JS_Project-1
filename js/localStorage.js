@@ -35,29 +35,41 @@ const addToLocalStorage = (e) => {
   }
   let btnTargetId = btnTarget.getAttribute("data-id");
   let btnTargetType = btnTarget.getAttribute("data-btn");
-  log(btnTargetType);
-  log(btnTargetId);
+  //log(btnTargetType);
+  //log(btnTargetId);
   if (btnTargetType === "watched") {
     if (load(KEY_WATCHED) !== undefined) {
       watched = load(KEY_WATCHED);
+    }
+    if (queue.includes(btnTargetId) === true) {
+      queue.splice(queue.indexOf(btnTargetId), 1);
+      save(KEY_QUEUE, queue);
     }
     watched.push(btnTargetId);
     watched = watched.filter(
       (movie, index, array) => array.indexOf(movie) === index
     );
-    log(watched);
+    //log(watched);
     save(KEY_WATCHED, watched);
+    log(btnTarget)
   } else if (btnTargetType === "queue") {
     if (load(KEY_QUEUE) !== undefined) {
       queue = load(KEY_QUEUE);
+    }
+    if (watched.includes(btnTargetId) === true) {
+      watched.splice(watched.indexOf(btnTargetId), 1);
+      save(KEY_WATCHED, watched);
     }
     queue.push(btnTargetId);
     queue = queue.filter(
       (movie, index, array) => array.indexOf(movie) === index
     );
-    log(queue);
+    //log(queue);
     save(KEY_QUEUE, queue);
+    log(btnTarget)
   }
 };
 
 backdrop.addEventListener("click", addToLocalStorage);
+
+export { load, save, watched, queue };
