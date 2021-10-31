@@ -59,11 +59,25 @@
     </header>
 
     <main>
-      <div class="film-gallery">
+      <div class="film-gallery" data-modal-open>
         <ul class="film-list">
           <!-- tu idą karty filmowe -->
         </ul>
       </div>
+      <!-- Okno modalne -->
+      <div class="js-open-modal overlay is-hidden" data-backdropp>
+        <div class="modal__wrapper">
+          <svg class="modal__close-icon js-close-btn" data-modal-close>
+            <use
+              href="./images/footer/close-button.svg#icon-modal-close-button"
+            ></use>
+          </svg>
+          <div id="film-template" class="modal">
+            <!-- tutaj templetka -->
+          </div>
+        </div>
+      </div>
+      <!-- koniec okna modalnego -->
     </main>
 
     <footer class="footer">
@@ -161,7 +175,7 @@
     <!-- <script type="module" src="main.js"></script> -->
     <script type="module" src="js/team-modal.js"></script>
     <!-- <script type="module" src="./js/spinner.js"></script> -->
-    <!-- <script type="module" src="./js/modalCard.js"></script> -->
+    <script type="module" src="./js/modalCard.js"></script>
     <!-- <script type="module" src="./js/localStorage.js"></script> -->
     <script type="module" src="js/getLocalStorage.js"></script>
   </body>
