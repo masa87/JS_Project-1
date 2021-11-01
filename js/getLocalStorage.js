@@ -1,3 +1,4 @@
+import { fetchGenres, fetchById } from "./fetchApi.js";
 const qs = (el) => document.querySelector(el);
 const filmList = qs(".film-list");
 // const backdrop = qs(".js-open-modal");
@@ -24,36 +25,11 @@ const load = (key) => {
   }
 };
 
-async function fetchById(id) {
-  try {
-    const response = await fetch(
-      `https://api.themoviedb.org/3/movie/${id}?api_key=b8c69e73ca2b06d4109ce06d6df842ad`
-    );
-    if (!response.ok) {
-      throw new Error(response.status);
-    }
-    return await response.json();
-  } catch (err) {
-    return console.log(err);
-  }
-}
+
 
 // -----------------genres
 
-async function fetchGenres() {
-  // spinner.spin(body);
-  try {
-    const response = await fetch(
-      `https://api.themoviedb.org/3/genre/movie/list?api_key=b8c69e73ca2b06d4109ce06d6df842ad`
-    );
-    if (!response.ok) {
-      throw new Error(response.status);
-    }
-    return response.json();
-  } catch (err) {
-    return console.log(err);
-  }
-}
+
 
 function searchGenres() {
   fetchGenres().then((id) => {
