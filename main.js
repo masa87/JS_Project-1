@@ -141,9 +141,13 @@ function renderPagination() {
         paginationContainer.innerHTML = `
         <li class="page-item disabled page-item-previous">
           <a class="page-link" href="#" tabindex="-1">
-            <svg class="page-icon" width="16" height="16">
-              <use href="./images/pagination/arrows.svg#icon-arrow-left"></use>
-            </svg>
+            <img
+              src="./images/pagination/arrow-left.svg"
+              class="page-icon"
+              width="16"
+              height="16"
+              alt="page icon"
+            />
           </a>
         </li>        
         <li class="page-item active" data=1>
@@ -161,17 +165,21 @@ function renderPagination() {
         <li class="page-item" data=${page + 4}>
           <a class="page-link" href="#">${page + 4}</a>      
         </li>
-        <li class="page-item disabled hide">
-          <a class="page-link" href="#">...</a>      
+        <li class="page-item disabled hide" style="font-size:10px">
+          <a class="page-link" href="#">&bull;&bull;&bull;</a>      
         </li>
         <li class="page-item hide" data=${totalPages}>
           <a class="page-link" href="#">${totalPages}</a>      
         </li>
         <li class="page-item" data=${page + 1}>
           <a class="page-link" href="#">
-            <svg class="page-icon" width="16" height="16">
-                <use href="./images/pagination/arrows.svg#icon-arrow-right"></use>
-            </svg>
+            <img
+              src="./images/pagination/arrow-right.svg"
+              class="page-icon"
+              width="16"
+              height="16"
+              alt="page icon"
+            />
           </a>
         </li>
         `;
@@ -183,16 +191,20 @@ function renderPagination() {
         paginationContainer.innerHTML = `
         <li class="page-item page-item-previous" data=${page - 1}>
           <a class="page-link" href="#" tabindex="-1">
-            <svg class="page-icon" width="16" height="16">
-              <use href="./images/pagination/arrows.svg#icon-arrow-left"></use>
-            </svg>
+            <img
+              src="./images/pagination/arrow-left.svg"
+              class="page-icon"
+              width="16"
+              height="16"
+              alt="page icon"
+            />
           </a>
         </li>
         <li class="page-item hide" data=1>
           <a class="page-link" href="#">1<span class="sr-only">(current)</span></a>      
         </li>
-        <li class="page-item disabled hide">
-          <a class="page-link" href="#">...</a>      
+        <li class="page-item disabled hide" style="font-size:10px">
+          <a class="page-link" href="#">&bull;&bull;&bull;</a>      
         </li>
         <li class="page-item" data=${page - 2}>
           <a class="page-link" href="#">${
@@ -211,17 +223,21 @@ function renderPagination() {
         <li class="page-item" data=${page + 2}>
           <a class="page-link" href="#">${page + 2}</a>      
         </li>
-        <li class="page-item hide disabled">
-          <a class="page-link" href="#">...</a>      
+        <li class="page-item hide disabled" style="font-size:10px">
+          <a class="page-link" href="#">&bull;&bull;&bull;</a>      
         </li>
         <li class="page-item hide" data=${totalPages}>
           <a class="page-link" href="#">${totalPages}</a>      
         </li>
         <li class="page-item" data=${page + 1}>
           <a class="page-link" href="#">
-            <svg class="page-icon" width="16" height="16">
-              <use href="./images/pagination/arrows.svg#icon-arrow-right"></use>
-            </svg>
+             <img
+              src="./images/pagination/arrow-right.svg"
+              class="page-icon"
+              width="16"
+              height="16"
+              alt="page icon"
+            />
           </a>
         </li>
         `;
