@@ -1,3 +1,13 @@
+import {
+  load,
+  save,
+  watched,
+  queue,
+  KEY_WATCHED,
+  KEY_QUEUE,
+} from "./localStorage.js";
+import { fetchById } from "./fetchApi.js";
+
 const qs = (selector) => document.querySelector(selector);
 
 const openModalCard = qs("[data-modal-open]");
@@ -13,19 +23,6 @@ const posterSize = "original";
 
 // --------------fetch danych dla wybranego filmu
 
-async function fetchById(id) {
-  try {
-    const response = await fetch(
-      `https://api.themoviedb.org/3/movie/${id}?api_key=b8c69e73ca2b06d4109ce06d6df842ad`
-    );
-    if (!response.ok) {
-      throw new Error(response.status);
-    }
-    return await response.json();
-  } catch (err) {
-    return console.log(err);
-  }
-}
 
 function movieDetails() {
   fetchById(filmId)
@@ -34,7 +31,31 @@ function movieDetails() {
     })
     .catch((err) => {});
 }
-
+//funkcja sprawdzająca czy film z danej karty znajduje
+//się na liście watched lub queue, oraz podświetlająca
+//odpowiedni przycisk i zmieniająca jego tekst, polepszając UI
+const buttonsHighlight = () => {
+  let btnWatched = document.querySelector("#add-watched");
+  let btnQueue = document.querySelector("#add-queue");
+  if (load(KEY_WATCHED) === undefined) {
+    save(KEY_WATCHED, []);
+  }
+  if (load(KEY_QUEUE) === undefined) {
+    save(KEY_QUEUE, []);
+  }
+  let watched = load(KEY_WATCHED);
+  let queue = load(KEY_QUEUE);
+  if (watched.includes(btnWatched.dataset.id)) {
+    //console.log("is in watched");
+    btnWatched.classList.add("is-chosenBtn");
+    btnWatched.textContent = "REMOVE FROM WATCHED";
+  }
+  if (queue.includes(btnQueue.dataset.id)) {
+    //console.log("is in queue");
+    btnQueue.classList.add("is-chosenBtn");
+    btnQueue.textContent = "REMOVE FROM QUEUE";
+  }
+};
 //funkcja do renderowania karty filmu w oknie modalnym,
 //html w gravisach, do uzupełnienia za pomocą ${cośtam}
 //żeby wyciągnąc dane z API i je umieścić w templatce
@@ -97,6 +118,7 @@ const renderSingleMovieCard = (id, movie) => {
     </div>
 </div>
   `;
+  buttonsHighlight();
 };
 //tutaj funkcja pozwala na otwarcie odpowiedniego filmu, klikając
 //na jego kartę (event jest na całym divie), wyciąga od razu

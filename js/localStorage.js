@@ -44,6 +44,10 @@ const addToLocalStorage = (e) => {
     if (queue.includes(btnTargetId) === true) {
       queue.splice(queue.indexOf(btnTargetId), 1);
       save(KEY_QUEUE, queue);
+    } else if (watched.includes(btnTargetId) === true) {
+      watched.splice(watched.indexOf(btnTargetId), 1);
+      save(KEY_WATCHED, watched);
+      return;
     }
     watched.push(btnTargetId);
     watched = watched.filter(
@@ -51,7 +55,7 @@ const addToLocalStorage = (e) => {
     );
     //log(watched);
     save(KEY_WATCHED, watched);
-    log(btnTarget)
+    //log(btnTarget)
   } else if (btnTargetType === "queue") {
     if (load(KEY_QUEUE) !== undefined) {
       queue = load(KEY_QUEUE);
@@ -59,6 +63,10 @@ const addToLocalStorage = (e) => {
     if (watched.includes(btnTargetId) === true) {
       watched.splice(watched.indexOf(btnTargetId), 1);
       save(KEY_WATCHED, watched);
+    } else if (queue.includes(btnTargetId) === true) {
+      queue.splice(queue.indexOf(btnTargetId), 1);
+      save(KEY_QUEUE, queue);
+      return;
     }
     queue.push(btnTargetId);
     queue = queue.filter(
@@ -66,10 +74,10 @@ const addToLocalStorage = (e) => {
     );
     //log(queue);
     save(KEY_QUEUE, queue);
-    log(btnTarget)
+    //log(btnTarget)
   }
 };
 
 backdrop.addEventListener("click", addToLocalStorage);
 
-export { load, save, watched, queue };
+export { load, save, watched, queue, KEY_WATCHED, KEY_QUEUE };
