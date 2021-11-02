@@ -1,17 +1,10 @@
-import { renderPagination, nextPagePagination } from "./pagination.js";
+import { renderPagination } from "./pagination.js";
 import { searchGenres, movieId } from "./genres.js";
-import { spinner, body } from "./spinner.js";
+import { spinner } from "./spinner.js";
 
 const qs = (selector) => document.querySelector(selector);
-const inputTitle = qs(".header-input");
 const filmList = qs(".film-list");
-const paginationContainer = qs(".pagination");
-const paginationitem = document.getElementsByClassName("page-item");
-
-let page = 1;
 let totalPages = 0;
-let currentPage = 1;
-let tempInputValue = "";
 
 searchGenres();
 // -----------renderowanie listy filmów

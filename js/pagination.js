@@ -5,12 +5,8 @@ const qs = (selector) => document.querySelector(selector);
 const inputTitle = qs(".header-input");
 const filmList = qs(".film-list");
 const paginationContainer = qs(".pagination");
-const paginationitem = document.getElementsByClassName("page-item");
 
-let movieId = [];
 let page = 1;
-let currentPage = 1;
-let tempInputValue = "";
 let setActive = null;
 
 function setPage(value) {
@@ -19,7 +15,7 @@ function setPage(value) {
 
 function renderPagination() {
   if (page <= 1) {
-    console.log(page);
+    //console.log(page);
     for (let i = page; i < totalPages; i++) {
       for (let j = page - 1; j < page + 3; j++) {
         // console.log(page);
@@ -71,7 +67,7 @@ function renderPagination() {
       }
     }
   } else if (page === totalPages) {
-    console.log(page);
+    //console.log(page);
     for (let i = page; i <= totalPages; i++) {
       for (let j = page - 1; j < page + 3; j++) {
         paginationContainer.innerHTML = `
@@ -171,9 +167,8 @@ function renderPagination() {
     }
   }
   setActive = document.querySelector(`[data="${page}"]`);
-  // setPage(setActive);
   setActive.classList.add("active");
-  console.log(page);
+  //console.log(page);
 }
 
 let currentPageNr = 0;
@@ -182,11 +177,12 @@ const nextPagePagination = (e) => {
   filmList.innerHTML = "";
   currentPageNr = e.target.closest("li");
   page = parseInt(currentPageNr.getAttribute("data"));
-  console.log(page);
+  //console.log(page);
   if (inputTitle.value === "") {
     setPopularMovie();
+  } else {
+    searchBoxValue();
   }
-  searchBoxValue();
 };
 
 export { renderPagination, nextPagePagination, page, setPage };
