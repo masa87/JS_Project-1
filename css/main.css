@@ -695,6 +695,7 @@ a {
   background-color: rgba(0, 0, 0, 0.3);
   -webkit-transition: all 250ms ease;
   transition: all 250ms ease;
+  z-index: 2;
 }
 
 @media screen and (min-width: 1920px) {
@@ -1165,4 +1166,3 @@ a {
     display: none;
   }
 }
-/*# sourceMappingURL=main.css.map */
