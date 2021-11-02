@@ -23,7 +23,6 @@ const posterSize = "original";
 
 // --------------fetch danych dla wybranego filmu
 
-
 function movieDetails() {
   fetchById(filmId)
     .then((movie) => {
@@ -55,6 +54,30 @@ const buttonsHighlight = () => {
     btnQueue.classList.add("is-chosenBtn");
     btnQueue.textContent = "REMOVE FROM QUEUE";
   }
+  btnWatched.addEventListener("click", () => {
+    if (btnWatched.textContent === "REMOVE FROM WATCHED") {
+      btnWatched.textContent = "ADD TO WATCHED";
+      btnWatched.classList.remove("is-chosenBtn")
+      btnQueue.classList.remove("is-chosenBtn")
+    } else {
+      btnWatched.textContent = "REMOVE FROM WATCHED";
+      btnWatched.classList.add('is-chosenBtn')
+      btnQueue.classList.remove("is-chosenBtn")
+      btnQueue.textContent = "ADD TO QUEUE"
+    }
+  });
+  btnQueue.addEventListener("click", () => {
+    if (btnQueue.textContent === "REMOVE FROM QUEUE") {
+      btnQueue.textContent = "ADD TO QUEUE";
+      btnQueue.classList.remove("is-chosenBtn")
+      btnWatched.classList.remove("is-chosenBtn")
+    } else {
+      btnQueue.textContent = "REMOVE FROM QUEUE";
+      btnQueue.classList.add('is-chosenBtn')
+      btnWatched.classList.remove('is-chosenBtn')
+      btnWatched.textContent = "ADD TO WATCHED"
+    }
+  });
 };
 //funkcja do renderowania karty filmu w oknie modalnym,
 //html w gravisach, do uzupełnienia za pomocą ${cośtam}

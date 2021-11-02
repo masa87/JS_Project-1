@@ -1,7 +1,4 @@
-import { page } from "./pagination.js";
 import { spinner, body } from "./spinner.js";
-
-const qs = (selector) => document.querySelector(selector);
 
 // ------------ wyszukiwanie filmów po tytule
 async function fetchMovie(title, page) {
