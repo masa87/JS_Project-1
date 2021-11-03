@@ -14,7 +14,7 @@ const posterSize = "w500";
 function renderMovies(movie) {
   totalPages = movie.total_pages;
 
-  renderPagination();
+  // renderPagination();
   movie.results.forEach(
     ({
       id,
@@ -43,6 +43,7 @@ function renderMovies(movie) {
     }
   );
   spinner.stop();
+  // renderPagination();
 }
 
 export { totalPages, renderMovies };

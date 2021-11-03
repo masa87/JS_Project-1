@@ -19,7 +19,7 @@ let targetCard = null;
 let filmId = null;
 
 const baseURL = "http://image.tmdb.org/t/p/";
-const posterSize = "original";
+const posterSize = "w500";
 
 // --------------fetch danych dla wybranego filmu
 
@@ -57,25 +57,25 @@ const buttonsHighlight = () => {
   btnWatched.addEventListener("click", () => {
     if (btnWatched.textContent === "REMOVE FROM WATCHED") {
       btnWatched.textContent = "ADD TO WATCHED";
-      btnWatched.classList.remove("is-chosenBtn")
-      btnQueue.classList.remove("is-chosenBtn")
+      btnWatched.classList.remove("is-chosenBtn");
+      btnQueue.classList.remove("is-chosenBtn");
     } else {
       btnWatched.textContent = "REMOVE FROM WATCHED";
-      btnWatched.classList.add('is-chosenBtn')
-      btnQueue.classList.remove("is-chosenBtn")
-      btnQueue.textContent = "ADD TO QUEUE"
+      btnWatched.classList.add("is-chosenBtn");
+      btnQueue.classList.remove("is-chosenBtn");
+      btnQueue.textContent = "ADD TO QUEUE";
     }
   });
   btnQueue.addEventListener("click", () => {
     if (btnQueue.textContent === "REMOVE FROM QUEUE") {
       btnQueue.textContent = "ADD TO QUEUE";
-      btnQueue.classList.remove("is-chosenBtn")
-      btnWatched.classList.remove("is-chosenBtn")
+      btnQueue.classList.remove("is-chosenBtn");
+      btnWatched.classList.remove("is-chosenBtn");
     } else {
       btnQueue.textContent = "REMOVE FROM QUEUE";
-      btnQueue.classList.add('is-chosenBtn')
-      btnWatched.classList.remove('is-chosenBtn')
-      btnWatched.textContent = "ADD TO WATCHED"
+      btnQueue.classList.add("is-chosenBtn");
+      btnWatched.classList.remove("is-chosenBtn");
+      btnWatched.textContent = "ADD TO WATCHED";
     }
   });
 };

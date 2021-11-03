@@ -1,4 +1,7 @@
+import { page } from "./pagination.js";
 import { spinner, body } from "./spinner.js";
+
+const qs = (selector) => document.querySelector(selector);
 
 // ------------ wyszukiwanie filmów po tytule
 async function fetchMovie(title, page) {
@@ -9,8 +12,9 @@ async function fetchMovie(title, page) {
     );
     if (!response.ok) {
       throw new Error(response.status);
+    } else {
+      return await response.json();
     }
-    return await response.json();
   } catch (err) {
     return console.log(err);
   }
@@ -25,8 +29,9 @@ async function fetchPopularMovie(page) {
     );
     if (!response.ok) {
       throw new Error(response.status);
+    } else {
+      return await response.json();
     }
-    return await response.json();
   } catch (err) {
     return console.log(err);
   }
@@ -42,8 +47,9 @@ async function fetchGenres() {
     );
     if (!response.ok) {
       throw new Error(response.status);
+    } else {
+      return response.json();
     }
-    return response.json();
   } catch (err) {
     return console.log(err);
   }
@@ -55,8 +61,9 @@ async function fetchById(id) {
     );
     if (!response.ok) {
       throw new Error(response.status);
+    } else {
+      return await response.json();
     }
-    return await response.json();
   } catch (err) {
     return console.log(err);
   }
