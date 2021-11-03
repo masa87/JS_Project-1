@@ -1,6 +1,11 @@
+.pagination {
+  max-width: 385px;
+}
+.nav__pagination {
+  display: flex;
+  justify-content: center;
+}
 .page-item.active .page-link {
-  // z-index: 1;
-  // color: #fff;
   background-color: #ff6b08;
   border-color: #ff6b08;
   border-radius: 5px;
@@ -9,7 +14,6 @@
   color: black;
   border: none;
   padding: 0.5rem 0.85rem;
-  // text-align: bas;
 
   &:focus {
     box-shadow: none;
@@ -19,22 +23,12 @@
   }
 }
 .page-link.arrow {
- width: 36px;
- height: 36px;
+  width: 36px;
+  height: 36px;
 }
 
 .page-item {
   text-align: center;
-  &:first-child {
-    .page-link {
-      background-color: #f7f7f7;
-    }
-  }
-  &:last-child {
-    .page-link {
-      background-color: #f7f7f7;
-    }
-  }
 }
 
 .page-item.disabled.hide {

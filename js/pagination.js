@@ -7,177 +7,149 @@ const filmList = qs(".film-list");
 const paginationContainer = qs(".pagination");
 
 let page = 1;
-let setActive = null;
+let setFirstPage = 1;
 
 function setPage(value) {
   page = value;
 }
 
+let bull = `<li class="page-item disabled hide" style="font-size:10px">
+              <a class="page-link" href="#">&bull;&bull;&bull;</a>      
+            </li>`;
+// deklaracja tablicy stron do zmapowania
+let listPagesStart = [`${page}`, `${page + 1}`, `${page + 2}`];
+let setActive;
 function renderPagination() {
-  if (page <= 1) {
-    //console.log(page);
-    for (let i = page; i < totalPages; i++) {
-      for (let j = page - 1; j < page + 3; j++) {
-        // console.log(page);
-        paginationContainer.innerHTML = `
-        <li class="page-item disabled page-item-previous">
-          <a class="page-link arrow" href="#" tabindex="-1">
-            <img
-              src="./images/pagination/arrow-left.svg"
-              class="page-icon"
-              width="16"
-              height="16"
-              alt="page icon"
-            />
-          </a>
-        </li>        
-        <li class="page-item active" data=1>
-          <a class="page-link" href="#">1</a>      
-        </li>
-        <li class="page-item" data=${page + 1}>
-          <a class="page-link" href="#">${page + 1}</a>      
-        </li>
-        <li class="page-item" data=${page + 2}>
-          <a class="page-link" href="#">${page + 2}</a>      
-        </li>
-        <li class="page-item" data=${page + 3}>
-          <a class="page-link" href="#">${page + 3}</a>      
-        </li>
-        <li class="page-item" data=${page + 4}>
-          <a class="page-link" href="#">${page + 4}</a>      
-        </li>
-         <li class="page-item disabled hide" style="font-size:10px">
-          <a class="page-link" href="#">&bull;&bull;&bull;</a>      
-        </li>
-        <li class="page-item hide" data=${totalPages}>
-          <a class="page-link" href="#">${totalPages}</a>      
-        </li>
-        <li class="page-item" data=${page + 1}>
-          <a class="page-link arrow" href="#">
-            <img
-              src="./images/pagination/arrow-right.svg"
-              class="page-icon"
-              width="16"
-              height="16"
-              alt="page icon"
-            />
-          </a>
-        </li>
-        `;
-      }
-    }
-  } else if (page === totalPages) {
-    //console.log(page);
-    for (let i = page; i <= totalPages; i++) {
-      for (let j = page - 1; j < page + 3; j++) {
-        paginationContainer.innerHTML = `
-        <li class="page-item page-item-previous" data=${page - 1}>
-          <a class="page-link arrow" href="#" tabindex="-1">
-            <img
-              src="./images/pagination/arrow-left.svg"
-              class="page-icon"
-              width="16"
-              height="16"
-              alt="page icon"
-            />
-          </a>
-        </li>
-        <li class="page-item hide" data=1>
-          <a class="page-link" href="#">1</a>      
-        </li>
-         <li class="page-item disabled hide" style="font-size:10px">
-          <a class="page-link" href="#">&bull;&bull;&bull;</a>      
-        </li>
-        <li class="page-item" data=${page - 2}>
-          <a class="page-link" href="#">${page - 2}</a>      
-        </li>
-        <li class="page-item" data=${page - 1}>
-          <a class="page-link" href="#">${page + -1}</a>      
-        </li>
-        <li class="page-item" data=${page}>
-          <a class="page-link" href="#">${page}</a>      
-        </li>
-        <li class="page-item disabled"  data=${page + 1}>
-          <a class="page-link arrow" href="#">
-            <img
-              src="./images/pagination/arrow-right.svg"
-              class="page-icon"
-              width="16"
-              height="16"
-              alt="page icon"
-            />
-          </a>
-        </li>
-        
-        `;
-      }
-    }
-  } else if (page > 1 && page <= totalPages - 1) {
-    for (let i = page; i < totalPages; i++) {
-      for (let j = page - 1; j < page + 3; j++) {
-        paginationContainer.innerHTML = `
-        <li class="page-item page-item-previous" data=${page - 1}>
-          <a class="page-link arrow" href="#" tabindex="-1">
-            <img
-              src="./images/pagination/arrow-left.svg"
-              class="page-icon"
-              width="16"
-              height="16"
-              alt="page icon"
-            />
-          </a>
-        </li>
-        <li class="page-item hide" data=1>
-          <a class="page-link" href="#">1</a>      
-        </li>
-         <li class="page-item disabled hide" style="font-size:10px">
-          <a class="page-link" href="#">&bull;&bull;&bull;</a>      
-        </li>
-        <li class="page-item" data=${page - 2}>
-          <a class="page-link" href="#">${page - 2}</a>      
-        </li>
-        <li class="page-item" data=${page - 1}>
-          <a class="page-link" href="#">${page + -1}</a>      
-        </li>
-        <li class="page-item" data=${page}>
-          <a class="page-link" href="#">${page}</a>      
-        </li>
-        <li class="page-item" data=${page + 1}>
-          <a class="page-link" href="#">${page + 1}</a>      
-        </li>
-         <li class="page-item disabled hide" style="font-size:10px">
-          <a class="page-link" href="#">&bull;&bull;&bull;</a>      
-        </li>
-        <li class="page-item hide" data=${totalPages}>
-          <a class="page-link" href="#">${totalPages}</a>      
-        </li>
-        <li class="page-item" data=${page + 1}>
-          <a class="page-link arrow" href="#">
-            <img
-              src="./images/pagination/arrow-right.svg"
-              class="page-icon"
-              width="16"
-              height="16"
-              alt="page icon"
-            />
-          </a>
-        </li>
-        `;
-      }
-    }
+  let firstPage = ` <li class="page-item hide page-click" data=${setFirstPage}>
+                    <a class="page-link" href="#">${setFirstPage}</a>      
+                  </li>`;
+  let arrowLeft = ` <li class="page-item page-click" data=${page - 1}>
+                  <a class="page-link arrow" href="#">
+                    <img src="./images/pagination/arrow-left.svg" class="page-icon" width="16" height="16" alt="page icon"/>
+                  </a>
+                </li>`;
+  let arrowRight = ` <li class="page-item page-click" data=${page + 1}>
+                  <a class="page-link arrow" href="#">
+                    <img src="./images/pagination/arrow-right.svg" class="page-icon" width="16" height="16" alt="page icon"/>
+                  </a>
+                </li>`;
+  let markupStart = null;
+  // deklaracja li / lastPage
+  let lastPage = `<li class="page-item page-click hide" data=${totalPages}>
+                  <a class="page-link" href="#">${totalPages}</a>
+                </li>`;
+
+  const markupFn = () => {
+    markupStart = listPagesStart.map((x) => {
+      return `<li class="page-item page-click" data=${x}>
+      <a class="page-link" href="#">${x}</a>
+      </li>`;
+    });
+  };
+
+  // warunki wyświetlania
+  if (totalPages < 2) {
+    listPagesStart = [`${page}`];
+    markupFn();
+    paginationContainer.innerHTML = `
+    ${markupStart.join(" ")}
+    `;
+  } else if (totalPages > 1 && totalPages <= 3) {
+    listPagesStart = [`${page}`, `${page + 1}`, `${page + 2}`];
+    markupFn();
+    paginationContainer.innerHTML = `
+    ${markupStart.join(" ")}${arrowRight}
+    `;
+  } else if (page == totalPages) {
+    listPagesStart = [`${page - 2}`, `${page - 1}`, `${page}`];
+    markupFn();
+    paginationContainer.innerHTML = `
+    ${arrowLeft}${firstPage}${bull}${markupStart.join(" ")}
+    `;
+  } else if (page == totalPages - 1) {
+    listPagesStart = [`${page - 1}`, `${page}`, `${page + 1}`];
+    markupFn();
+    paginationContainer.innerHTML = `
+    ${arrowLeft}${firstPage}${bull}${markupStart.join(" ")}${arrowRight}
+    `;
+  } else if (page == totalPages - 2) {
+    listPagesStart = [`${page - 1}`, `${page}`, `${page + 1}`, `${page + 2}`];
+    markupFn();
+    paginationContainer.innerHTML = `
+    ${arrowLeft}${firstPage}${bull}${markupStart.join(" ")}${arrowRight}
+    `;
+  } else if (page == totalPages - 3) {
+    listPagesStart = [
+      `${page - 1}`,
+      `${page}`,
+      `${page + 1}`,
+      `${page + 2}`,
+      `${page + 3}`,
+    ];
+    markupFn();
+    paginationContainer.innerHTML = `
+    ${arrowLeft}${firstPage}${bull}${markupStart.join(" ")}${arrowRight}
+    `;
+  } else if (page === 1) {
+    listPagesStart = [`${page}`, `${page + 1}`, `${page + 2}`];
+    markupFn();
+    paginationContainer.innerHTML = `
+    ${markupStart.join(" ")}${bull}${lastPage}${arrowRight}
+    `;
+  } else if (page > 1 && page <= 2) {
+    listPagesStart = [`${page - 1}`, `${page}`, `${page + 1}`];
+    markupFn();
+    paginationContainer.innerHTML = `
+    ${arrowLeft}${markupStart.join(" ")}${bull}${lastPage}${arrowRight}
+    `;
+  } else if (page === 4) {
+    listPagesStart = [
+      `${page - 3}`,
+      `${page - 2}`,
+      `${page - 1}`,
+      `${page}`,
+      `${page + 1}`,
+    ];
+    markupFn();
+    paginationContainer.innerHTML = `
+    ${arrowLeft}${markupStart.join(" ")}${bull}${lastPage}${arrowRight}
+    `;
+  } else if (page < 4) {
+    listPagesStart = [`${page - 2}`, `${page - 1}`, `${page}`, `${page + 1}`];
+    markupFn();
+    paginationContainer.innerHTML = `
+    ${arrowLeft}${markupStart.join(" ")}${bull}${lastPage}${arrowRight}
+    `;
+  } else if (page >= 4) {
+    listPagesStart = [
+      `${page - 2}`,
+      `${page - 1}`,
+      `${page}`,
+      `${page + 1}`,
+      `${page + 2}`,
+    ];
+    markupFn();
+    paginationContainer.innerHTML = `
+    ${arrowLeft}${firstPage}${bull}${markupStart.join(
+      " "
+    )}${bull}${lastPage}${arrowRight}
+    `;
   }
   setActive = document.querySelector(`[data="${page}"]`);
   setActive.classList.add("active");
-  //console.log(page);
 }
-
 let currentPageNr = 0;
 
 const nextPagePagination = (e) => {
+  currentPageNr = e.target.closest(".page-click");
+  if (!currentPageNr) {
+    return;
+  }
   filmList.innerHTML = "";
-  currentPageNr = e.target.closest("li");
   page = parseInt(currentPageNr.getAttribute("data"));
-  //console.log(page);
+  if (page === 1) {
+    renderPagination();
+  }
   if (inputTitle.value === "") {
     setPopularMovie();
   } else {
