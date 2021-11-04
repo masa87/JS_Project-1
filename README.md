@@ -49,7 +49,7 @@ project is written at the end of the study of Javascript.
 
 ## How to use Filmoteka?
 
-:orange_circle: It is the site for searching ... movies ;p
+:orange_circle: It is the site for searching movies.
 
 
 **The Web App provides the following functions:**
@@ -62,4 +62,4 @@ project is written at the end of the study of Javascript.
 
 :world_map: in LIBRARY you can see your database of movies divided by 2 categories: WATCHED and QUEUE,
 
-:black_circle: Responsive design for use on phone :iphone:, tablet and desktop :desktop_computer:.
+:black_circle: responsive design for use on phone :iphone:, tablet and desktop :desktop_computer:.
