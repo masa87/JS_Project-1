@@ -14,10 +14,10 @@ let movieId = [];
 const load = (key) => {
   try {
     const serializedState = localStorage.getItem(key);
-    console.log(
-      (idQueue =
-        serializedState === null ? undefined : JSON.parse(serializedState))
-    );
+    // console.log(
+    //   (idQueue =
+    //     serializedState === null ? undefined : JSON.parse(serializedState))
+    // );
     return (idQueue =
       serializedState === null ? undefined : JSON.parse(serializedState));
   } catch (error) {
@@ -79,7 +79,7 @@ btnWatched.addEventListener("click", () => {
   btnWatched.classList.add("is-chosen");
   btnQueue.classList.remove("is-chosen");
   key = KEY_WATCHED;
-  console.log(key);
+  // console.log(key);
   renderQueueMovies();
 });
 
