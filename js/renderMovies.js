@@ -4,6 +4,7 @@ import { spinner } from "./spinner.js";
 
 const qs = (selector) => document.querySelector(selector);
 const filmList = qs(".film-list");
+const errorSearch = qs(".error");
 let totalPages = 0;
 
 searchGenres();
@@ -13,6 +14,12 @@ const posterSize = "w500";
 
 function renderMovies(movie) {
   totalPages = movie.total_pages;
+
+  if (movie.total_pages === 0) {
+    errorSearch.classList.remove("is-hidden");
+  } else {
+    errorSearch.classList.add("is-hidden");
+  }
 
   // renderPagination();
   movie.results.forEach(
