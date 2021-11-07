@@ -1,23 +1,12 @@
 import { fetchById } from "./fetchApi.js";
-
-const qs = (el) => document.querySelector(el);
-const filmList = qs(".film-list");
-const btnQueue = qs(".btn__queue");
-const btnWatched = qs(".btn__watched");
-const KEY_QUEUE = "queue-movies";
-const KEY_WATCHED = "watched-movies";
+import * as DOM_ELEMENTS from "./VARs";
 
 let idQueue = [];
 let key = null;
-let movieId = [];
 
 const load = (key) => {
   try {
     const serializedState = localStorage.getItem(key);
-    // console.log(
-    //   (idQueue =
-    //     serializedState === null ? undefined : JSON.parse(serializedState))
-    // );
     return (idQueue =
       serializedState === null ? undefined : JSON.parse(serializedState));
   } catch (error) {
@@ -27,11 +16,8 @@ const load = (key) => {
 
 // -------------rendeMovies
 
-const baseURL = "http://image.tmdb.org/t/p/";
-const posterSize = "w500";
-
 function renderQueueMovies() {
-  filmList.innerHTML = "";
+  DOM_ELEMENTS.filmList.innerHTML = "";
   load(key);
 
   idQueue.forEach((movieId1) => {
@@ -45,11 +31,11 @@ function renderQueueMovies() {
         vote_average,
       }) => {
         let getGenres = [...genres].map((genre) => genre.name).join(", ");
-        let relaseYear = release_date.substring(0, 4);
-        filmList.innerHTML += `
+        let relaseYear = release_date?.substring(0, 4) ?? "";
+        DOM_ELEMENTS.filmList.innerHTML += `
       <li class="film-list-item">
         <div class="film-card" data-id="${id}">        
-          <img class="film-cover" src="${baseURL}${posterSize}${poster_path}" alt="${original_title}" loading="lazy" />
+          <img class="film-cover" src="${DOM_ELEMENTS.BASE_URL}${DOM_ELEMENTS.POSTER_SIZE}${poster_path}" alt="${original_title}" loading="lazy" />
           <p class="film-title">${original_title}</p>
           <p class="film-info">${getGenres} | ${relaseYear} <span class="modal__descr-vote"> ${vote_average}</span></p>
         </div>
@@ -60,25 +46,25 @@ function renderQueueMovies() {
 }
 
 function startMyLibPage() {
-  btnQueue.classList.add("is-chosen");
-  btnWatched.classList.remove("is-chosen");
-  key = KEY_QUEUE;
+  DOM_ELEMENTS.btnQueue.classList.add("is-chosen");
+  DOM_ELEMENTS.btnWatched.classList.remove("is-chosen");
+  key = DOM_ELEMENTS.KEY_QUEUE;
   renderQueueMovies();
 }
 
 startMyLibPage();
 
 // -----------------addEventListeners
-btnQueue.addEventListener("click", () => {
-  btnQueue.classList.add("is-chosen");
-  btnWatched.classList.remove("is-chosen");
-  key = KEY_QUEUE;
+DOM_ELEMENTS.btnQueue.addEventListener("click", () => {
+  DOM_ELEMENTS.btnQueue.classList.add("is-chosen");
+  DOM_ELEMENTS.btnWatched.classList.remove("is-chosen");
+  key = DOM_ELEMENTS.KEY_QUEUE;
   renderQueueMovies();
 });
-btnWatched.addEventListener("click", () => {
-  btnWatched.classList.add("is-chosen");
-  btnQueue.classList.remove("is-chosen");
-  key = KEY_WATCHED;
+DOM_ELEMENTS.btnWatched.addEventListener("click", () => {
+  DOM_ELEMENTS.btnWatched.classList.add("is-chosen");
+  DOM_ELEMENTS.btnQueue.classList.remove("is-chosen");
+  key = DOM_ELEMENTS.KEY_WATCHED;
   // console.log(key);
   renderQueueMovies();
 });

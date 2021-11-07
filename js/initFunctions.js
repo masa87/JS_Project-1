@@ -2,20 +2,17 @@ import { fetchMovie, fetchPopularMovie } from "./fetchApi.js";
 import { renderMovies } from "./renderMovies.js";
 import { page, setPage } from "./pagination.js";
 import { renderPagination } from "./pagination.js";
-
-const qs = (selector) => document.querySelector(selector);
-const inputTitle = qs(".header-input");
-const filmList = qs(".film-list");
+import * as DOM_ELEMENTS from "./VARs";
 
 let tempInputValue = "";
 
 function searchBoxValue() {
-  if (inputTitle.value !== tempInputValue) {
+  if (DOM_ELEMENTS.inputTitle.value !== tempInputValue) {
     setPage(1);
   }
-  fetchMovie(inputTitle.value, page)
+  fetchMovie(DOM_ELEMENTS.inputTitle.value, page)
     .then((movie) => {
-      tempInputValue = inputTitle.value;
+      tempInputValue = DOM_ELEMENTS.inputTitle.value;
       renderMovies(movie);
       renderPagination();
     })
@@ -35,11 +32,11 @@ function setPopularMovie() {
 
 function startPage(e) {
   e.preventDefault();
-  if (inputTitle.value === "") {
+  if (DOM_ELEMENTS.inputTitle.value === "") {
     setPopularMovie();
     renderPagination();
   } else {
-    filmList.innerHTML = "";
+    DOM_ELEMENTS.filmList.innerHTML = "";
     searchBoxValue();
     renderPagination();
   }
